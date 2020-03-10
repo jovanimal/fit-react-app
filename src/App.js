@@ -41,6 +41,7 @@ function App() {
       <UserProfile />
       <MyProfilePage />
       <Challenges />
+      <NavBar />
     </div>
   );
 }
