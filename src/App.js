@@ -18,7 +18,9 @@ function App() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getUserInfo = () => {
+  // for Reference if you need to use useEffect
+
+  useEffect(() => {
     axios
       .get("http://localhost:5000/api/v1/users/info/1")
       .then(result => {
@@ -28,21 +30,7 @@ function App() {
       .catch(error => {
         console.log(error);
       });
-  };
-
-  // for Reference if you need to use useEffect
-
-  // useEffect(() => {
-  //   axios.get("https://insta.nextacademy.com/api/v1/users/").then(result => {
-  //     setUsers(result.data);
-  //     setIsLoading(false);
-  //   });
-
-  //   let loggedInUser = localStorage.getItem("userInfo");
-  //   if (loggedInUser) {
-  //     setCurrentUser(JSON.parse(loggedInUser));
-  //   }
-  // }, []);
+  }, []);
 
   return (
     <div className="App">
