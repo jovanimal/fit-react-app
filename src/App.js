@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/users/info/1")
+      .get("https://fivehive.herokuapp.com/api/v1/users/info/1")
       .then(result => {
         console.log(result);
         setUsers(result.data);
@@ -34,15 +34,13 @@ function App() {
 
   return (
     <div className="App">
-      {users.username}
       <HomePage />
       <LoginForm />
       <SignUpForm />
       <MainPage />
-      <UserProfile />
+      <UserProfile users={users} />
       <MyProfilePage />
       <Challenges />
-      <NavBar />
     </div>
   );
 }
