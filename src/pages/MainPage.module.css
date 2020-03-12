@@ -1,0 +1,105 @@
+.containerTop {
+  height: 80vh;
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.containerBottom {
+  height: 20vh;
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.logo {
+  /* border: 1px solid white; */
+  height: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BUDDY BUTTON */
+.buddyBtn span {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: darkslategray;
+  /* background-color: #c8a3b5; */
+  background-color: #fdbe83;
+  border: transparent;
+}
+
+.buddyBtn span::before {
+  /* background-color: #c8a3b5; */
+  background-color: #fdbe83;
+  border: transparent;
+}
+
+.buddyBtn span::after {
+  /* background-color: #c8a3b5; */
+  background-color: #fdbe83;
+  border: transparent;
+}
+
+.buddyAnimate {
+  position: relative;
+  animation: mymove 3s; 
+  animation-fill-mode: forwards;
+  overflow: hidden;
+  transform: scale(1.25);
+}
+
+/* MENTOR BUTTON */
+.mentorBtn span {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: darkslategray;
+  /* background-color: #6ca3cf; */
+  background-color: #fdbe83;
+  border: transparent;
+}
+
+.mentorBtn span::before {
+  /* background-color: #6ca3cf; */
+  background-color: #fdbe83;
+  border: transparent;
+}
+
+.mentorBtn span::after {
+  /* background-color: #6ca3cf; */
+  background-color: #fdbe83;
+  border: transparent;
+}
+
+.mentorAnimate {
+  position: relative;
+  animation: mymove2 3s; 
+  animation-fill-mode: forwards;
+  margin-top: 0px;
+  overflow: hidden;
+  transform: scale(1.25);
+}
+
+.hb-custom {
+  size: 200px;
+}
+
+@keyframes mymove {
+  from {left: 200px; opacity: 0.2}
+  to {left: -45px; opacity: 0.9}
+}
+
+@keyframes mymove2 {
+  from {right: 200px; opacity: 0.2}
+  to {right: -45px; opacity: 0.9}
+}
