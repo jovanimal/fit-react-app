@@ -10,7 +10,7 @@ import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import axios from "axios";
-// import { Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 // import { ToastContainer, toast } from "react-toastify";
 // import Image from "react-graceful-image";
 
@@ -22,9 +22,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://fivehive.herokuapp.com/api/v1/users/info/1")
+      .get("https://fivehive.herokuapp.com/api/v1/users/show")
       .then(result => {
-        console.log(result);
+        console.log(result.data);
         setUsers(result.data);
       })
       .catch(error => {
@@ -34,15 +34,15 @@ function App() {
 
   return (
     <div className="App">
-      <HomePage />
-      <LoginForm />
-      <SignUpForm />
-      <MainPage />
       <UserProfile users={users} />
-      <MyProfilePage />
-      <Challenges />
     </div>
   );
 }
+// <HomePage />
+// <LoginForm />
+// <SignUpForm />
+// <MainPage />
+// <MyProfilePage />
+// <Challenges />
 
 export default App;
