@@ -1,0 +1,67 @@
+.containerTop {
+  height: 100vh;
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: rgba(255,255,255, 0.4);
+}
+
+.containerBottom {
+  height: 25vh;
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  /* flex-direction: column; */
+}
+
+.logo {
+  /* border: 1px solid white; */
+  height: 250px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+/* .hexagon, 
+.hexagon:before, 
+.hexagon:after {
+  background: #FDBE83;  
+}
+
+.hexagon span {
+  background: #FDBE83;
+}
+
+
+.hexagonOutline {
+  top: 0;
+  left: 0;
+  background-color: blue;
+  z-index: -1;
+} */
+/* 
+.top {
+  top: 25%;
+  left: 25%;
+  background-color: red;
+} */
+
+/* .button span {
+  font-size: 1.2em;
+  color: black;
+  line-height: normal;
+  background-color: #fdbe83;
+}
+
+.button span::before {
+  background-color: #fdbe83;
+}
+
+.button span::after {
+  background-color: #fdbe83;
+} */

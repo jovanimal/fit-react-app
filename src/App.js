@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "./assets/css/hexagons.min.css"
 import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import MainPage from "./pages/MainPage";
@@ -9,6 +10,7 @@ import Challenges from "./pages/Challenges";
 import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
+
 import axios from "axios";
 // import { Route } from "react-router-dom";
 // import { ToastContainer, toast } from "react-toastify";
@@ -34,11 +36,20 @@ function App() {
 
   return (
     <div className="App">
-      {users.username}
-      <HomePage />
-      <LoginForm />
-      <SignUpForm />
-      <MainPage />
+
+      <Route exact path="/">
+        <HomePage />
+      </Route>
+      <Route path="/login">
+        <LoginForm />
+      </Route>
+      <Route path="/signup">
+        <SignUpForm />
+      </Route>
+      <Route path="/main">
+        <MainPage />
+      </Route>
+
       <UserProfile />
       <MyProfilePage />
       <Challenges />
