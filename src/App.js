@@ -64,7 +64,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://fivehive.herokuapp.com/api/v1/users/show")
+      .get("https://fivehive.herokuapp.com/api/v1/users/show/1")
       .then(result => {
         console.log(result.data);
         setUsers(result.data);
@@ -98,8 +98,9 @@ function App() {
       <Route path="/main">
         <MainPage />
       </Route>
-
-      <UserProfile users={users} />
+      <Route path="/userprofile">
+        <UserProfile users={users} />
+      </Route>
       <MyProfilePage />
       <Challenges />
       <Route path="/navbar">
