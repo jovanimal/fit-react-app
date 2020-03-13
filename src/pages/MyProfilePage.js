@@ -1,7 +1,12 @@
 import React from "react";
+import NavBar from "../components/NavBar";
 
 const MyProfilePage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <NavBar />
+    </div>
+  );
 };
 
 export default MyProfilePage;

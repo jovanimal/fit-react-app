@@ -29,6 +29,7 @@ function App() {
     setusernameInput(e.target.value);
   };
 
+
   const handlePassword = e => {
     setpasswordInput(e.target.value);
   };
@@ -46,6 +47,14 @@ function App() {
           username: usernameInput,
           password: passwordInput
         }
+
+  useEffect(() => {
+    axios
+      .get("https://fivehive.herokuapp.com/api/v1/users/show")
+      .then(result => {
+        console.log(result.data);
+        setUsers(result.data);
+
       })
         .then(result => {
           console.log(result.data[1]);
@@ -77,6 +86,9 @@ function App() {
 
   return (
     <div className="App">
+
+      <UserProfile users={users} />
+
       <Route exact path="/">
         <HomePage />
       </Route>
@@ -99,16 +111,25 @@ function App() {
       <Route path="/main">
         <MainPage />
       </Route>
+
       <Route path="/userprofile">
         <UserProfile loggedUser={loggedUser} />
       </Route>
+
       <MyProfilePage />
       <Challenges />
       <Route path="/navbar">
         <NavBar />
       </Route>
+
     </div>
   );
 }
+// <HomePage />
+// <LoginForm />
+// <SignUpForm />
+// <MainPage />
+// <MyProfilePage />
+// <Challenges />
 
 export default App;
