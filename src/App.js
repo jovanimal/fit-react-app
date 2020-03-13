@@ -36,9 +36,6 @@ function App() {
 
   return (
     <div className="App">
-
-      <UserProfile users={users} />
-
       <Route exact path="/">
         <HomePage />
       </Route>
@@ -51,8 +48,15 @@ function App() {
       <Route path="/main">
         <MainPage />
       </Route>
-      <MyProfilePage />
-      <Challenges />
+      <Route path="/nearby">
+        <UserProfile users={users} />
+      </Route>
+      <Route path="/challenges">
+        <Challenges />
+      </Route>
+      <Route path="/myprofile">
+        <MyProfilePage />
+      </Route>
       <Route path="/navbar">
         <NavBar />
       </Route>

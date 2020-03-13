@@ -9,10 +9,7 @@ const HomePage = () => {
   return (
     <>
       <Button className={styles.containerTop} tag={Link} to="/login">
-        <div>
-          <Image src={Hive} className={styles.logo} />
-          {/* <p style={{ color: "white", fontSize: "3em" }}>LOGO</p> */}
-        </div>
+        <Image src={Hive} className={styles.logo} />
       </Button>
       {/* <div className="containerBottom">
         <div className={styles.button}>
@@ -28,6 +25,5 @@ const HomePage = () => {
     </>
   )
 };
-{/* <div className={`${styles.hexagonOutline} hexagon`}><span></span></div> */ }
 
 export default HomePage;
