@@ -76,6 +76,9 @@ function App() {
 
   return (
     <div className="App">
+
+      <UserProfile users={users} />
+
       <Route exact path="/">
         <HomePage />
       </Route>
@@ -98,15 +101,20 @@ function App() {
       <Route path="/main">
         <MainPage />
       </Route>
-
-      <UserProfile users={users} />
       <MyProfilePage />
       <Challenges />
       <Route path="/navbar">
         <NavBar />
       </Route>
+
     </div>
   );
 }
+// <HomePage />
+// <LoginForm />
+// <SignUpForm />
+// <MainPage />
+// <MyProfilePage />
+// <Challenges />
 
 export default App;
