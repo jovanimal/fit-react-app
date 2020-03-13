@@ -50,6 +50,7 @@ function App() {
       })
         .then(result => {
           console.log(result.data[1]);
+          showUsers(result.data[1]);
           setTimeout(() => {
             setisloggedin(true);
             setloggedUser(result.data[1]);
@@ -62,9 +63,9 @@ function App() {
     }
   };
 
-  useEffect(() => {
+  const showUsers = id => {
     axios
-      .get("https://fivehive.herokuapp.com/api/v1/users/show/1")
+      .get(`https://fivehive.herokuapp.com/api/v1/users/show/${id}`)
       .then(result => {
         console.log(result.data);
         setUsers(result.data);
@@ -72,7 +73,7 @@ function App() {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  };
 
   return (
     <div className="App">
