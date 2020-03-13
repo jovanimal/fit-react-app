@@ -1,11 +1,21 @@
 import React from "react";
-import styles from "./LoginForm.module.css"
+import styles from "./LoginForm.module.css";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { NavLink as Link } from "react-router-dom";
-import Hive from "../assets/images/5-hive.png"
-import Image from "react-graceful-image"
+import Hive from "../assets/images/5-hive.png";
+import Image from "react-graceful-image";
 
-const LoginForm = () => {
+const LoginForm = ({
+  setisloggedin,
+  isloggedin,
+  usernameInput,
+  setusernameInput,
+  passwordInput,
+  setpasswordInput,
+  handleUser,
+  handlePassword,
+  submitlog
+}) => {
   return (
     <>
       <div className={styles.containerTop}>
@@ -14,22 +24,18 @@ const LoginForm = () => {
           {/* <p style={{ color: "white", fontSize: "2em" }}>LOGO</p> */}
         </div>
         <h3>Log In.</h3>
-        <Form >
+        <Form>
           <FormGroup>
             <h5>Username</h5>
-            <Input
-              type="text"
-            />
+            <Input type="text" onChange={handleUser} />
           </FormGroup>
           <FormGroup>
             <h5>Password</h5>
-            <Input
-              type="password"
-            />
+            <Input type="password" onChange={handlePassword} />
           </FormGroup>
-          <Button className={styles.loginBtn}>
+          <Button className={styles.loginBtn} onClick={submitlog}>
             log in
-        </Button>
+          </Button>
         </Form>
       </div>
       <div className={styles.containerBottom}>
@@ -38,21 +44,17 @@ const LoginForm = () => {
         <div className={styles.buttons}>
           <Button tag={Link} to="/signup">
             <a className={styles.userBtn}>
-              <span className="hb hb-sm">
-                USER
-              </span>
+              <span className="hb hb-sm">USER</span>
             </a>
           </Button>
           <span className={styles.span}>OR</span>
           <a className={styles.mentorBtn} href="#">
-            <span className="hb hb-sm">
-              MENTOR
-          </span>
+            <span className="hb hb-sm">MENTOR</span>
           </a>
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export default LoginForm;
