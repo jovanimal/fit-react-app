@@ -5,23 +5,21 @@
   bottom: 0;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
 }
 
 .navbar a {
-  /* float: left; */
+  float: left;
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 8px 5px;
+  padding: 12px 12px;
   text-decoration: none;
   font-size: 15px;
-  width: 75px;
+  min-width: 75px;
 }
 
 .navbar a:hover {
-  background: #fdbe38;
-  text-decoration: none;
+  background: #f1f1f1;
   color: black;
 }
 
@@ -31,5 +29,5 @@
 }
 
 .grid {
-  width: 70px;
+  width: 72px;
 }
