@@ -60,7 +60,6 @@ function App() {
       <Route path="/navbar">
         <NavBar />
       </Route>
-
     </div>
   );
 }

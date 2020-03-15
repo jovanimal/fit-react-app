@@ -13,30 +13,32 @@ const LoginForm = () => {
           <Image src={Hive} className={styles.logo} />
           {/* <p style={{ color: "white", fontSize: "2em" }}>LOGO</p> */}
         </div>
-        <h3>Log In.</h3>
-        <Form >
-          <FormGroup>
-            <h5>Username</h5>
-            <Input
-              type="text"
-            />
-          </FormGroup>
-          <FormGroup>
-            <h5>Password</h5>
-            <Input
-              type="password"
-            />
-          </FormGroup>
-          <Button className={styles.loginBtn}>
-            log in
-        </Button>
-        </Form>
+        <div className={styles.form}>
+          <h4 className={styles.h4}>Log In</h4>
+          <Form >
+            <FormGroup>
+              <h6 className={styles.h6}>Username</h6>
+              <input
+                type="text"
+              />
+            </FormGroup>
+            <FormGroup>
+              <h6 className={styles.h6}>Password</h6>
+              <input
+                type="password"
+              />
+            </FormGroup>
+            <button className={styles.loginBtn}>
+              log in
+          </button>
+          </Form>
+        </div>
       </div>
       <div className={styles.containerBottom}>
-        <h4 style={{ marginTop: "-20px", marginBottom: "-5px" }}>New User?</h4>
+        <h5 style={{ marginTop: "-20px", marginBottom: "-1px" }}>New User?</h5>
         <p>Sign up as:</p>
         <div className={styles.buttons}>
-          <Button tag={Link} to="/signup">
+          <Button tag={Link} to="/signup" style={{ backgroundColor: "transparent", padding: "0", border: "transparent" }}>
             <a className={styles.userBtn}>
               <span className="hb hb-sm">
                 USER

@@ -53,14 +53,6 @@ const UserProfile = ({ users }) => {
                     </p>
                   </div>
                 </Col>
-
-                // <Card>
-                //   <CardBody>
-                //     <CardTitle>{user.username}</CardTitle>
-                //     <CardSubtitle>{user.age}</CardSubtitle>
-                //     <CardText>{user.height}</CardText>
-                //   </CardBody>
-                // </Card>
               );
             })
           }

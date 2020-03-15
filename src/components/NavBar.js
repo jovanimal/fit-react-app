@@ -35,11 +35,11 @@ const NavBar = () => {
         </a>
       </div>
       <div className={styles.grid}>
-        <a href="#profile">
+        <Button tag={Link} to="/myprofile">
           <i class="fas fa-user"></i>
           <br />
           Profile
-        </a>
+        </Button>
       </div>
     </div>
   );
