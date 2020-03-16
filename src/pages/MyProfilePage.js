@@ -50,4 +50,11 @@ const MyProfilePage = () => {
   );
 };
 
+// age
+// fitness level
+// years of training
+// preferred workouts
+// weight
+// height
+
 export default MyProfilePage;

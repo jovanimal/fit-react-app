@@ -1,3 +1,7 @@
+.fullPage{
+  min-height: 100%;
+}
+
 .containerTop {
   height: 65vh;
   background-color: rgba(255, 255, 255, 0.6);
@@ -55,9 +59,10 @@ input {
   text-shadow: 1px 0px rgba(255, 188, 63, 0.75);
 }
 
-input:hover {
-  border: transparent;
+input:focus {
+  background-color: black;
 }
+
 
 .loginBtn {
   margin-top: 10px;
@@ -92,8 +97,6 @@ input:hover {
 .userBtn span::before {
   background-color: #fdbe83;
   border: transparent;
-  /* background-color: #c8a3b5; */
-  /* border-color: #fdbe83; */
 }
 
 .userBtn span::after {
