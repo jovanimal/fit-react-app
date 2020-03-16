@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./LoginForm.module.css";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { NavLink as Link } from "react-router-dom";
@@ -27,11 +27,11 @@ const LoginForm = ({
         <Form>
           <FormGroup>
             <h6 className={styles.h6}>Username</h6>
-            <Input type="text" onChange={handleUser} />
+            <input type="text" onChange={handleUser} />
           </FormGroup>
           <FormGroup>
             <h6 className={styles.h6}>Password</h6>
-            <Input type="password" onChange={handlePassword} />
+            <input type="password" onChange={handlePassword} />
           </FormGroup>
           <Button className={styles.loginBtn} onClick={submitlog}>
             log in

@@ -36,15 +36,33 @@
   animation: mymove 2s;
 }
 
+.title{
+  margin-bottom: -8px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.title span {
+  background-color: white;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
 .input { 
-  border: transparent;
-  border-bottom: 1px solid black;
+  border: 1px solid rgb(137, 146, 146);
+  border-radius: 20px;
   text-align: center;
   width: 250px;
+  height: 50px;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: darkslategray;
   text-shadow: 1px 0px rgba(255, 188, 63, 0.75);
   /* font-size: 0.8em; */
+}
+
+.input:hover {
+  background-color: transparent
 }
 
 .nextBtn {
@@ -82,26 +100,26 @@
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 25px;
+  height: 8px;
   background: #d3d3d3;
-  opacity: 0.7;
+  opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
-  border: none
 }
 
-/* Mouse-over effects */
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+  opacity: 1;
+  background: #d3d3d3;
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 25px;
+  height: 25px; 
+  background: #fdbe83; 
+  border: transparent;
+  cursor: pointer;
 }
 
 @-webkit-keyframes bounce-top {
@@ -209,3 +227,54 @@
   }
 }
 
+.row1 {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 90%;
+  /* border: 1px solid black; */
+}
+
+.row2 {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 60%;
+  /* border: 1px solid black; */
+}
+
+.checkboxes {
+  transform: scale(1.45);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.checkboxes input[type=checkbox]{
+  display: none;
+}
+
+.checkboxes input[type=checkbox]:checked + .hex {
+  background-color: #fdbe83;
+  border-color: transparent;
+  color: rgb(77, 92, 92);
+}
+
+.checkboxes input[type=checkbox]:checked + .hex::before {
+  background-color: #fdbe83;
+  border-color: transparent;
+}
+
+.checkboxes input[type=checkbox]:checked + .hex::after {
+  background-color: #fdbe83;
+  border-color: transparent;
+
+}
+
+.hex, .hex::before, .hex::after{
+  background-color: transparent;
+  border-color: #f39a48;
+  color: #f39a48;
+  font-size: 0.8em;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
