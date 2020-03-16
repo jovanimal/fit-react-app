@@ -1,96 +1,82 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { NavLink as Link } from "react-router-dom";
 import styles from "./SignUpForm.module.css"
 
 const SignUpForm = () => {
-  const [step2, setStep2] = useState(false)
-  const [step3, setStep3] = useState(false)
+  const [username, setusername] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
 
-  const toggleStep2 = () => setStep2(true)
-  const toggleStep1 = () => setStep2(false)
-  const toggleStep3 = () => setStep3(true)
+  const handleusername = e => {
+    setusername(e.target.value);
+  };
+
+  const handleemail = e => {
+    setemail(e.target.value);
+  };
+
+  const handlepassword = e => {
+    setpassword(e.target.value);
+  };
+
+  let history = useHistory();
+
+  const signup = (username, email, password) => {
+    if (username && email && password) {
+      axios({
+        method: "POST",
+        url: "https://fivehive.herokuapp.com/api/v1/users/new",
+        data: {
+          username: username,
+          email: email,
+          password: password
+        }
+      })
+        .then(result => {
+          console.log(result);
+          history.push("/login");
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+    } else {
+      console.log("some fields are missing");
+    }
+  };
 
   return (
     <>
-      <div className={styles.fullPage}>
-        <Button tag={Link} to="/login" style={{ position: "fixed", top: "10px", left: "10px", border: "none", borderRadius: "50%", backgroundColor: "#fdbe83", height: "35px", width: "35px", fontSize: "2em", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
-          &lt;
+      <h3>Sign Up.</h3>
+      <Form>
+        <FormGroup>
+          <h5>Username</h5>
+          <Input type="text" onChange={handleusername} />
+        </FormGroup>
+        <FormGroup>
+          <h5>E-mail</h5>
+          <Input type="email" onChange={handleemail} />
+        </FormGroup>
+        <FormGroup>
+          <h5>Password</h5>
+          <Input type="password" onChange={handlepassword} />
+        </FormGroup>
+        <FormGroup>
+          <h5></h5>
+        </FormGroup>
+        <Button
+          className="mx-auto d-block"
+          outline
+          color="primary"
+          onClick={() => signup(username, email, password)}
+        >
+          Sign up
         </Button>
-        <h1>Sign Up</h1>
-        <div className={styles.container}>
-          {!step2 ? (
-            <div className={styles.step1}>
-              <Form >
-                <FormGroup>
-                  <h6 className={styles.h6}>Username</h6>
-                  <input
-                    type="text" className={styles.input}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <h6 className={styles.h6}>E-mail</h6>
-                  <input type="email" className={styles.input} />
-                </FormGroup>
-                <FormGroup>
-                  <h6 className={styles.h6}>Password</h6>
-                  <input
-                    type="password" className={styles.input}
-                  />
-                </FormGroup>
-              </Form>
-            </div>
-          ) : (
-              !step3 ? (
-                <div className={styles.step2}>
-                  <Form >
-                    <FormGroup>
-                      <h5>What is your fitness level?</h5>
-                      <div class="slidecontainer">
-                        <input type="range" min="0" max="10" value="5" className={styles.slider} id="myRange" />
-                      </div>
-                    </FormGroup>
-                  </Form>
-                </div>
-              ) : (
-                  <div className={styles.step1}>
-                    <Form>
-                      <h5>What are your preferred exercises?</h5>
-                    </Form>
-                  </div>
-                )
-            )
-          }
-        </div>
-        {!step2 ? (
-          <button className={`mx-auto d-block ${styles.nextBtn}`} onClick={toggleStep2}>
-            next >>
-          </button>
-        ) : (
-            !step3 ? (
-              <div className={styles.nextPrevBtn}>
-                <button className={styles.nextBtn} onClick={toggleStep1}>
-                  &lt;&lt; previous
-              </button>
-                <button className={styles.nextBtn} onClick={toggleStep3}>
-                  next >>
-              </button>
-              </div>
-            ) : (
-                <div className={styles.nextPrevBtn}>
-                  <button className={styles.nextBtn} onClick={toggleStep2}>
-                    &lt;&lt; previous
-                  </button>
-                  <button className={styles.nextBtn}>
-                    sign me up!
-                  </button>
-                </div>
-              )
-          )
-        }
-      </div>
+      </Form>
     </>
-  )
+  );
 };
 
 export default SignUpForm;

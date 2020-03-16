@@ -12,19 +12,60 @@ import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 
 import axios from "axios";
-import { Route } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 // import { ToastContainer, toast } from "react-toastify";
 // import Image from "react-graceful-image";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [isloggedin, setisloggedin] = useState(false); //for login-required content in subsequent pages
+  const [usernameInput, setusernameInput] = useState("");
+  const [passwordInput, setpasswordInput] = useState("");
+  const [loggedUser, setloggedUser] = useState("");
   // for Reference if you need to use useEffect
 
-  useEffect(() => {
+  const handleUser = e => {
+    setusernameInput(e.target.value);
+  };
+
+  const handlePassword = e => {
+    setpasswordInput(e.target.value);
+  };
+
+  let history = useHistory();
+
+  const submitlog = e => {
+    e.preventDefault();
+    if (usernameInput && passwordInput) {
+      console.log(`username = ${usernameInput}, password=${passwordInput}`);
+      axios({
+        method: "POST",
+        // change me
+        url: "https://fivehive.herokuapp.com/api/v1/users/signin",
+        data: {
+          username: usernameInput,
+          password: passwordInput
+        }
+      })
+        .then(result => {
+          console.log(result.data[1]);
+          showUsers(result.data[1]);
+          setTimeout(() => {
+            setisloggedin(true);
+            setloggedUser(result.data[1]);
+            history.push("/userprofile");
+          }, 300);
+        })
+        .catch(error => {
+          console.log("cannot leh");
+        });
+    }
+  };
+
+  const showUsers = id => {
     axios
-      .get("https://fivehive.herokuapp.com/api/v1/users/show")
+      .get(`https://fivehive.herokuapp.com/api/v1/users/show/${id}`)
       .then(result => {
         console.log(result.data);
         setUsers(result.data);
@@ -32,7 +73,7 @@ function App() {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  };
 
   return (
     <div className="App">
@@ -40,7 +81,17 @@ function App() {
         <HomePage />
       </Route>
       <Route path="/login">
-        <LoginForm />
+        <LoginForm
+          isloggedin={isloggedin}
+          setisloggedin={setisloggedin}
+          usernameInput={usernameInput}
+          setusernameInput={usernameInput}
+          passwordInput={passwordInput}
+          setpasswordInput={setpasswordInput}
+          handleUser={handleUser}
+          handlePassword={handlePassword}
+          submitlog={submitlog}
+        />
       </Route>
       <Route path="/signup">
         <SignUpForm />
@@ -57,17 +108,14 @@ function App() {
       <Route path="/myprofile">
         <MyProfilePage />
       </Route>
+      <Route path="/userprofile">
+        <UserProfile users={users} />
+      </Route>
       <Route path="/navbar">
         <NavBar />
       </Route>
     </div>
   );
 }
-// <HomePage />
-// <LoginForm />
-// <SignUpForm />
-// <MainPage />
-// <MyProfilePage />
-// <Challenges />
 
 export default App;
