@@ -13,7 +13,6 @@ import {
 import Image from "react-graceful-image";
 import defaultImage from "../assets/images/default-profile.png"
 import styles from "./UserProfile.module.css"
-
 /*
 // below is the variable for "users" that we fetched from API
 age: 
@@ -47,10 +46,14 @@ const UserProfile = ({ users }) => {
                     <p>
                       weight kg, height cm
                   </p>
-                    <p><span className={styles.runningSpan}>running</span><span className={styles.pilatesSpan}>pilates</span><span className={styles.yogaSpan}>yoga</span></p>
                     <p>
-                      <span className={styles.weightSpan}>weight lifting</span>
-                    </p>
+                    <span className={styles.runningSpan}>running</span>
+                    <span className={styles.pilatesSpan}>pilates</span>
+                    <span className={styles.yogaSpan}>yoga</span>
+                  </p>
+                    <p>
+                    <span className={styles.weightSpan}>weight lifting</span>
+                  </p>
                   </div>
                 </Col>
               );

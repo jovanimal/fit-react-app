@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { NavLink as Link } from "react-router-dom";
 import styles from "./SignUpForm.module.css"
@@ -10,6 +12,47 @@ const SignUpForm = () => {
   const handleSlider = e => {
     setslider(e.target.value)
   }
+  
+  const [username, setusername] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const handleusername = e => {
+    setusername(e.target.value);
+  };
+
+  const handleemail = e => {
+    setemail(e.target.value);
+  };
+
+  const handlepassword = e => {
+    setpassword(e.target.value);
+  };
+
+  let history = useHistory();
+  
+  const signup = (username, email, password) => {
+    if (username && email && password) {
+      axios({
+        method: "POST",
+        url: "https://fivehive.herokuapp.com/api/v1/users/new",
+        data: {
+          username: username,
+          email: email,
+          password: password
+        }
+      })
+        .then(result => {
+          console.log(result);
+          history.push("/login");
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+    } else {
+      console.log("some fields are missing");
+    }
+  };
 
   const pages = [
     (<div className={styles.step1}>
@@ -17,17 +60,17 @@ const SignUpForm = () => {
         <FormGroup>
           <h6 className={styles.title}><span>USERNAME</span></h6>
           <input
-            type="text" className={styles.input}
+            type="text" className={styles.input} onChange={handleusername}
           />
         </FormGroup>
         <FormGroup>
           <h6 className={styles.title}><span>E-MAIL</span></h6>
-          <input type="email" className={styles.input} />
+          <input type="email" className={styles.input} onChange={handleemail}/>
         </FormGroup>
         <FormGroup>
           <h6 className={styles.title}><span>PASSWORD</span></h6>
           <input
-            type="password" className={styles.input}
+            type="password" className={styles.input} onChange={handlepassword}
           />
         </FormGroup>
       </Form>
@@ -153,27 +196,24 @@ const SignUpForm = () => {
         <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage - 1)}>
           &lt;&lt; previous
         </button>
-        <button className={styles.nextBtn}>
+        <button className={styles.nextBtn} onClick={() => signup(username, email, password)}>
           sign me up!
         </button>
       </div>
     )
   ]
+==============================================
 
   return (
     <>
-      <div className={styles.fullPage}>
-        <Button tag={Link} to="/login" style={{ position: "fixed", top: "10px", left: "10px", border: "none", borderRadius: "50%", backgroundColor: "#fdbe83", height: "35px", width: "35px", fontSize: "2em", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
-          &lt;
-        </Button>
-        <h1>Sign Up</h1>
-        <div className={styles.container}>
-          {pages[currentPage]}
-        </div>
+      <h1>Sign Up</h1>
+      <div className={styles.container}>
+        {pages[currentPage]}
+      </div>
         {buttonGroup[currentPage]}
       </div>
     </>
-  )
+  );
 };
 
 export default SignUpForm;
