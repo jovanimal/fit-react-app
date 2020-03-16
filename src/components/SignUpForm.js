@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
+import { NavLink as Link } from "react-router-dom";
+import styles from "./SignUpForm.module.css"
 
 const SignUpForm = () => {
   const [username, setusername] = useState("");

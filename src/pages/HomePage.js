@@ -8,26 +8,16 @@ import Hive from '../assets/images/5-hive.png'
 const HomePage = () => {
   return (
     <>
-      <Button className={styles.containerTop} tag={Link} to="/login">
-        <div>
-          <Image src={Hive} className={styles.logo} />
-          {/* <p style={{ color: "white", fontSize: "3em" }}>LOGO</p> */}
+      <Button tag={Link} to="/login" style={{
+        height: "80vh", width: "100vw", display: "flex",
+        flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(255, 255, 255, 0.3)", border: "transparent"
+      }}>
+        <Image src={Hive} className={styles.logo} />
+        <div className={styles.circle}>
         </div>
       </Button>
-      {/* <div className="containerBottom">
-        <div className={styles.button}>
-          <Button tag={Link} to="/login">
-            <a>
-              <span className="hb hb-md">
-                LET'S GET STARTED
-          </span>
-            </a>
-          </Button>
-        </div>
-      </div> */}
     </>
   )
 };
-{/* <div className={`${styles.hexagonOutline} hexagon`}><span></span></div> */ }
 
 export default HomePage;

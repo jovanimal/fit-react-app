@@ -99,11 +99,18 @@ function App() {
       <Route path="/main">
         <MainPage />
       </Route>
+      <Route path="/nearby">
+        <UserProfile users={users} />
+      </Route>
+      <Route path="/challenges">
+        <Challenges />
+      </Route>
+      <Route path="/myprofile">
+        <MyProfilePage />
+      </Route>
       <Route path="/userprofile">
         <UserProfile users={users} />
       </Route>
-      <MyProfilePage />
-      <Challenges />
       <Route path="/navbar">
         <NavBar />
       </Route>

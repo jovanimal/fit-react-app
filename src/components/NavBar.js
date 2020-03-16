@@ -1,15 +1,17 @@
 import React from "react";
 import styles from "./NavBar.module.css";
+import { NavLink as Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 const NavBar = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.grid}>
-        <a href="#home" className="active">
+        <Button tag={Link} to="/nearby" className="active">
           <i class="fas fa-street-view"></i>
           <br />
           Nearby
-        </a>
+        </Button>
       </div>
       <div className={styles.grid}>
         <a href="#match">
@@ -19,11 +21,11 @@ const NavBar = () => {
         </a>
       </div>
       <div className={styles.grid}>
-        <a href="#challenges">
+        <Button tag={Link} to="/challenges">
           <i class="fas fa-dumbbell"></i>
           <br />
           FIT
-        </a>
+        </Button>
       </div>
       <div className={styles.grid}>
         <a href="#chat">
@@ -33,11 +35,11 @@ const NavBar = () => {
         </a>
       </div>
       <div className={styles.grid}>
-        <a href="#profile">
+        <Button tag={Link} to="/myprofile">
           <i class="fas fa-user"></i>
           <br />
           Profile
-        </a>
+        </Button>
       </div>
     </div>
   );

@@ -21,28 +21,29 @@ const LoginForm = ({
       <div className={styles.containerTop}>
         <div>
           <Image src={Hive} className={styles.logo} />
-          {/* <p style={{ color: "white", fontSize: "2em" }}>LOGO</p> */}
         </div>
-        <h3>Log In.</h3>
+        <div className={styles.form}>
+        <h4 className={styles.h4}>Log In</h4>
         <Form>
           <FormGroup>
-            <h5>Username</h5>
+            <h6 className={styles.h6}>Username</h6>
             <Input type="text" onChange={handleUser} />
           </FormGroup>
           <FormGroup>
-            <h5>Password</h5>
+            <h6 className={styles.h6}>Password</h6>
             <Input type="password" onChange={handlePassword} />
           </FormGroup>
           <Button className={styles.loginBtn} onClick={submitlog}>
             log in
           </Button>
         </Form>
+        </div>
       </div>
       <div className={styles.containerBottom}>
-        <h4 style={{ marginTop: "-20px", marginBottom: "-5px" }}>New User?</h4>
+        <h5 style={{ marginTop: "-20px", marginBottom: "-1px" }}>New User?</h5>
         <p>Sign up as:</p>
         <div className={styles.buttons}>
-          <Button tag={Link} to="/signup">
+          <Button tag={Link} to="/signup" style={{ backgroundColor: "transparent", padding: "0", border: "transparent" }}>
             <a className={styles.userBtn}>
               <span className="hb hb-sm">USER</span>
             </a>
