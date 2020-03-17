@@ -22,6 +22,7 @@
   animation: ping 1.2s ease-in-out 3s infinite both;
 }
 
+
 @-webkit-keyframes ping {
   0% {
     -webkit-transform: scale(0.5);

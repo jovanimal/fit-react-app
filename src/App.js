@@ -75,6 +75,19 @@ function App() {
       });
   };
 
+  // test
+  useEffect(() => {
+    axios
+      .get(`https://fivehive.herokuapp.com/api/v1/users/show/1`)
+      .then(result => {
+        console.log(result.data);
+        setUsers(result.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  })
+
   return (
     <div className="App">
       <Route exact path="/">

@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const handleSlider = e => {
     setslider(e.target.value)
   }
-  
+
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -30,7 +30,7 @@ const SignUpForm = () => {
   };
 
   let history = useHistory();
-  
+
   const signup = (username, email, password) => {
     if (username && email && password) {
       axios({
@@ -65,7 +65,7 @@ const SignUpForm = () => {
         </FormGroup>
         <FormGroup>
           <h6 className={styles.title}><span>E-MAIL</span></h6>
-          <input type="email" className={styles.input} onChange={handleemail}/>
+          <input type="email" className={styles.input} onChange={handleemail} />
         </FormGroup>
         <FormGroup>
           <h6 className={styles.title}><span>PASSWORD</span></h6>
@@ -120,9 +120,9 @@ const SignUpForm = () => {
           <div className={styles.row2}>
             <div className={styles.checkboxes}>
               <input type="checkbox" id="fourth" />
-              <label className={`hb hb-sm ${styles.hex}`} for="fourth"></label>
+              <label className={`hb hb-sm ${styles.hex}`} for="fourth">swimming</label>
               <input type="checkbox" id="fifth" />
-              <label className={`hb hb-sm ${styles.hex}`} for="fifth"></label>
+              <label className={`hb hb-sm ${styles.hex}`} for="fifth">jogging</label>
             </div>
           </div>
         </Form>
@@ -137,7 +137,7 @@ const SignUpForm = () => {
               <input type="checkbox" id="first" />
               <label className={`hb hb-sm ${styles.hex}`} for="first"></label>
               <input type="checkbox" id="second" />
-              <label className={`hb hb-sm ${styles.hex}`} for="second"><br /> lifting</label>
+              <label className={`hb hb-sm ${styles.hex}`} for="second"></label>
               <input type="checkbox" id="third" />
               <label className={`hb hb-sm ${styles.hex}`} for="third"></label>
             </div>
@@ -202,17 +202,22 @@ const SignUpForm = () => {
       </div>
     )
   ]
-==============================================
 
   return (
-    <>
+    <div className={styles.fullPage}>
+      <Button tag={Link} to="/login" style={{
+        top: "20px", left: "20px", position: "absolute", borderRadius: "50%", height: "35px", width: "35px", fontSize: "2em", display: "flex",
+        paddingTop: "23px",
+        alignItems: "center", justifyContent: "center", backgroundColor: "#fdbe83", border: "none", color: "slategray"
+      }}>
+        <p>&lt;</p>
+      </Button>
       <h1>Sign Up</h1>
       <div className={styles.container}>
         {pages[currentPage]}
       </div>
-        {buttonGroup[currentPage]}
-      </div>
-    </>
+      {buttonGroup[currentPage]}
+    </div>
   );
 };
 
