@@ -11,8 +11,8 @@ import {
   CardText
 } from "reactstrap";
 import Image from "react-graceful-image";
-import defaultImage from "../assets/images/default-profile.png"
-import styles from "./UserProfile.module.css"
+import defaultImage from "../assets/images/default-profile.png";
+import styles from "./UserProfile.module.css";
 /*
 // below is the variable for "users" that we fetched from API
 age: 
@@ -30,41 +30,39 @@ const UserProfile = ({ users }) => {
     <>
       <Container fluid={true} style={{ marginBottom: "70px" }}>
         <Row>
-          {
-            users.map((user, index) => {
-              return (
-
-                <Col key={index} xs="6" md="4">
-                  <div style={{ border: "1px solid black", borderRadius: "10px", margin: '10px -5px' }}>
-                    <Image src={defaultImage} className={styles.profilePic} />
-                    <h4>
-                      {user.username}
-                    </h4>
-                    <h6>
-                      age
-                  </h6>
-                    <p>
-                      weight kg, height cm
+          {users.map((user, index) => {
+            return (
+              <Col key={index} xs="6" md="4">
+                <div
+                  style={{
+                    border: "1px solid black",
+                    borderRadius: "10px",
+                    margin: "10px -5px"
+                  }}
+                >
+                  <Image src={defaultImage} className={styles.profilePic} />
+                  <h4>{user.username}</h4>
+                  <h6>{user.age}</h6>
+                  <p>
+                    {user.weight} kg, {user.height} cm
                   </p>
-                    <p>
+                  <p>
                     <span className={styles.runningSpan}>running</span>
                     <span className={styles.pilatesSpan}>pilates</span>
                     <span className={styles.yogaSpan}>yoga</span>
                   </p>
-                    <p>
+                  <p>
                     <span className={styles.weightSpan}>weight lifting</span>
                   </p>
-                  </div>
-                </Col>
-              );
-            })
-          }
+                </div>
+              </Col>
+            );
+          })}
         </Row>
-      </Container >
-      < NavBar />
+      </Container>
+      <NavBar />
     </>
   );
 };
-
 
 export default UserProfile;
