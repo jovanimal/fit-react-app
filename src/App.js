@@ -42,6 +42,7 @@ function App() {
       axios({
         method: "POST",
         // change me
+        // url: "http://localhost:5000/api/v1/users/signin",
         url: "https://fivehive.herokuapp.com/api/v1/users/signin",
         data: {
           username: usernameInput,
@@ -102,7 +103,9 @@ function App() {
       <Route path="/userprofile">
         <UserProfile users={users} />
       </Route>
-      <MyProfilePage />
+      <Route path="/test">
+        <MyProfilePage loggedUser={loggedUser} />
+      </Route>
       <Challenges />
       <Route path="/navbar">
         <NavBar />
