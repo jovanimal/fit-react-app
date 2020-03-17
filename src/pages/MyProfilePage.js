@@ -1,17 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
-import { Container, Row, Col, Button } from "reactstrap"
-import styles from "./MyProfilePage.module.css"
-import Image from "react-graceful-image"
-import profilePic from "../assets/images/calcifer.png"
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Form,
+  FormGroup,
+  CustomInput
+} from "reactstrap";
+import styles from "./MyProfilePage.module.css";
+import Image from "react-graceful-image";
+import profilePic from "../assets/images/calcifer.png";
+import axios from "axios";
 
-const MyProfilePage = () => {
+const MyProfilePage = ({ loggedUser, myinfo }) => {
+  const [modal, setModal] = useState(false);
+  const [fyle, setfyle] = useState(null);
+
+  const toggle = () => setModal(!modal);
+
+  const handlefile = e => {
+    let targetFile = e.target.files[0];
+    console.log(targetFile.name);
+    setfyle(targetFile);
+  };
+
+  const uploadfile = e => {
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append("media", fyle);
+    axios({
+      method: "POST",
+      // change me
+      url: `http://localhost:5000/api/v1/users/upload/${loggedUser}`,
+      data: formData
+    })
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <Container fluid={true} className={styles.fullPage}>
         <Row>
           <div className={styles.username}>
-            <span>Melissa1311</span>
+            <span>{myinfo.username}</span>
           </div>
         </Row>
         <Row className={styles.userInfo}>
@@ -46,6 +88,45 @@ const MyProfilePage = () => {
               <span style={{ fontSize: "0.9em", border: "2px solid #f8a456", borderRadius: "10px", color: "#f8a456" }}>jogging</span>
               <span style={{ fontSize: "0.9em", border: "2px solid #fd9b8a", borderRadius: "10px", color: "#fd9b8a", margin: "0 5px" }}>yoga</span>
               <span style={{ fontSize: "0.9em", border: "2px solid #5ac5c5", borderRadius: "10px", color: "#5ac5c5" }}>weightlifting</span>
+            </Row>
+            <Row>
+              <button className={styles.editBtn} onClick={toggle}>
+                >Upload media
+              </button>
+              <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalBody>
+                  <Form>
+                    <FormGroup className="w-50 mx-auto d-block">
+                      <CustomInput
+                        type="file"
+                        id="exampleCustomFileBrowser"
+                        name="customFile"
+                        className="mt-4"
+                        onChange={handlefile}
+                      />
+                    </FormGroup>
+                    <Button
+                      outline
+                      color="primary"
+                      type="submit"
+                      onClick={e => {
+                        uploadfile(e);
+                      }}
+                    >
+                      Upload
+                    </Button>
+                  </Form>
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="primary" onClick={uploadfile}>
+                    Upload
+                  </Button>{" "}
+                  <Button color="secondary" onClick={toggle}>
+                    Cancel
+                  </Button>
+                </ModalFooter>
+              </Modal>
             </Row>
           </Col>
         </Row>

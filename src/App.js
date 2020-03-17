@@ -23,7 +23,17 @@ function App() {
   const [usernameInput, setusernameInput] = useState("");
   const [passwordInput, setpasswordInput] = useState("");
   const [loggedUser, setloggedUser] = useState("");
-  // for Reference if you need to use useEffect
+  const [myinfo, setmyinfo] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(` http://localhost:5000/api/v1/users/profile/${loggedUser}`)
+      .then(result => {
+        setmyinfo(result.data);
+        console.log("mounted");
+      })
+      .catch(console.log("cannot render page"));
+  }, [loggedUser]);
 
   const handleUser = e => {
     setusernameInput(e.target.value);
@@ -119,7 +129,7 @@ function App() {
         <Challenges />
       </Route>
       <Route path="/myprofile">
-        <MyProfilePage />
+        <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} />
       </Route>
       <Route path="/userprofile">
         <UserProfile users={users} />

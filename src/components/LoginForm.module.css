@@ -1,4 +1,4 @@
-.fullPage{
+.fullPage {
   min-height: 100%;
 }
 
@@ -11,7 +11,7 @@
   box-sizing: border-box;
   flex-direction: column;
   color: darkslategray;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .form {
@@ -27,7 +27,7 @@
   justify-content: center;
   box-sizing: content-box;
   flex-direction: column;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: darkslategray;
 }
 
@@ -88,7 +88,6 @@ input {
   border-radius: 0;
 }
 
-
 .userBtn span::before {
   background-color: #fdbe83;
   border: transparent;
@@ -101,10 +100,12 @@ input {
   /* border-color: #fdbe83; */
 }
 
-.userBtn span:hover, .userBtn span:hover:before, .userBtn span:hover:after {
+.userBtn span:hover,
+.userBtn span:hover:before,
+.userBtn span:hover:after {
   background-color: transparent;
   border-color: #c8a3b5;
-  color: #c8a3b5
+  color: #c8a3b5;
 }
 
 .span {
@@ -124,7 +125,6 @@ input {
   border-radius: 0;
 }
 
-
 .mentorBtn span::before {
   /* background-color: #6ca3cf; */
   background-color: #fdbe83;
@@ -135,18 +135,26 @@ input {
 
 .mentorBtn span::after {
   /* background-color: #6ca3cf;*/
-  background-color: #fdbe83; 
+  background-color: #fdbe83;
   border: transparent;
   /* background-color: transparent; */
   /* border-color: #fdbe83; */
 }
 
-.mentorBtn span:hover, .mentorBtn span:hover:before, .mentorBtn span:hover:after {
+.mentorBtn span:hover,
+.mentorBtn span:hover:before,
+.mentorBtn span:hover:after {
   border-color: #6ca3cf;
-  color: #6ca3cf
+  color: #6ca3cf;
 }
 
 @keyframes mymove {
-  from {left: 200px; opacity: 0.2}
-  to {left: 0px; opacity: 1}
+  from {
+    left: 200px;
+    opacity: 0.2;
+  }
+  to {
+    left: 0px;
+    opacity: 1;
+  }
 }
