@@ -142,9 +142,9 @@ const SignUpForm = () => {
         <div className={styles.row2}>
           <div className={styles.checkboxes}>
             <input type="checkbox" id="fourth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="fourth"></label>
+            <label className={`hb hb-sm ${styles.hex}`} for="fourth">swimming</label>
             <input type="checkbox" id="fifth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="fifth"></label>
+            <label className={`hb hb-sm ${styles.hex}`} for="fifth">jogging</label>
           </div>
         </div>
       </Form>
@@ -177,76 +177,70 @@ const SignUpForm = () => {
   ];
 
   const buttonGroup = [
-    <button
-      className={`mx-auto d-block ${styles.nextBtn}`}
-      onClick={() => setCurrentPage(currentPage + 1)}
-    >
-      next >>
-    </button>,
-    <div className={styles.nextPrevBtn}>
-      <button
-        className={styles.nextBtn}
-        onClick={() => setCurrentPage(currentPage - 1)}
-      >
-        &lt;&lt; previous
-      </button>
-      <button
-        className={styles.nextBtn}
-        onClick={() => setCurrentPage(currentPage + 1)}
-      >
-        next >>
-      </button>
-    </div>,
-    <div className={styles.nextPrevBtn}>
-      <button
-        className={styles.nextBtn}
-        onClick={() => setCurrentPage(currentPage - 1)}
-      >
-        &lt;&lt; previous
-      </button>
-      <button
-        className={styles.nextBtn}
-        onClick={() => setCurrentPage(currentPage + 1)}
-      >
-        next >>
-      </button>
-    </div>,
-    <div className={styles.nextPrevBtn}>
-      <button
-        className={styles.nextBtn}
-        onClick={() => setCurrentPage(currentPage - 1)}
-      >
-        &lt;&lt; previous
-      </button>
-      <button
-        className={styles.nextBtn}
-        onClick={() => setCurrentPage(currentPage + 1)}
-      >
-        next >>
-      </button>
-    </div>,
-    <div className={styles.nextPrevBtn}>
-      <button
-        className={styles.nextBtn}
-        onClick={() => setCurrentPage(currentPage - 1)}
-      >
-        &lt;&lt; previous
-      </button>
-      <button
-        className={styles.nextBtn}
-        onClick={() => signup(username, email, password)}
-      >
-        sign me up!
-      </button>
-    </div>
-  ];
+    (
+      <div className={styles.nextPrevBtn}>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage + 1)}>
+          next >>
+        </button>
+      </div>
+    ),
+    (
+      <div className={styles.nextPrevBtn}>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage - 1)}>
+          &lt;&lt; previous
+        </button>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage + 1)}>
+          next >>
+        </button>
+      </div>
+    ),
+    (
+      <div className={styles.nextPrevBtn}>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage - 1)}>
+          &lt;&lt; previous
+        </button>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage + 1)}>
+          next >>
+        </button>
+      </div>
+    ),
+    (
+      <div className={styles.nextPrevBtn}>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage - 1)}>
+          &lt;&lt; previous
+        </button>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage + 1)}>
+          next >>
+        </button>
+      </div>
+    ),
+    (
+      <div className={styles.nextPrevBtn}>
+        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage - 1)}>
+          &lt;&lt; previous
+        </button>
+        <button className={styles.nextBtn} onClick={() => signup(username, email, password)}>
+          sign me up!
+        </button>
+      </div>
+    )
+  ]
 
   return (
-    <>
+    <div className={styles.fullPage}>
+      <Button tag={Link} to="/login" style={{
+        top: "20px", left: "20px", position: "absolute", borderRadius: "50%", height: "35px", width: "35px", fontSize: "2em", display: "flex",
+        paddingTop: "23px",
+        alignItems: "center", justifyContent: "center", backgroundColor: "#fdbe83", border: "none", color: "slategray"
+      }}>
+        <p>&lt;</p>
+      </Button>
       <h1>Sign Up</h1>
-      <div className={styles.container}>{pages[currentPage]}</div>
-      <div>{buttonGroup[currentPage]}</div>
-    </>
+      <div className={styles.container}>
+        {pages[currentPage]}
+      </div>
+      {buttonGroup[currentPage]}
+    </div>
   );
 };
 

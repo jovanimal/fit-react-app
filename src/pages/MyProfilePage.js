@@ -62,18 +62,32 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
           </Col>
           <Col xs="8" className={styles.column}>
             <Row>
+              age
+            </Row>
+            <Row>
+              height cm, weight kg
+            </Row>
+            <Row>
+              n years of training
+            </Row>
+            {/* <Row>
               <Col xs="4">
-                <h4>123</h4>
-                <p>posts</p>
+              <h4>123</h4>
+              <p>posts</p>
               </Col>
               <Col xs="4">
-                <h4>123</h4>
-                <p>followers</p>
+              <h4>123</h4>
+              <p>followers</p>
               </Col>
               <Col xs="4">
-                <h4>123</h4>
-                <p>following</p>
+              <h4>123</h4>
+              <p>following</p>
               </Col>
+            </Row> */}
+            <Row className={styles.exerciseTags}>
+              <span style={{ fontSize: "0.9em", border: "2px solid #f8a456", borderRadius: "10px", color: "#f8a456" }}>jogging</span>
+              <span style={{ fontSize: "0.9em", border: "2px solid #fd9b8a", borderRadius: "10px", color: "#fd9b8a", margin: "0 5px" }}>yoga</span>
+              <span style={{ fontSize: "0.9em", border: "2px solid #5ac5c5", borderRadius: "10px", color: "#5ac5c5" }}>weightlifting</span>
             </Row>
             <Row>
               <button className={styles.editBtn} onClick={toggle}>
@@ -115,6 +129,12 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
               </Modal>
             </Row>
           </Col>
+        </Row>
+        <Row>
+          <Button className={styles.editBtn}>edit your profile</Button>
+        </Row>
+        <Row>
+          <Button className={styles.addBtn}>add post</Button>
         </Row>
         <Row className={styles.container}>
           <div className={styles.post}></div>

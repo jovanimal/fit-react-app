@@ -28,7 +28,7 @@ years_of_training:
 const UserProfile = ({ users }) => {
   return (
     <>
-      <Container fluid={true} style={{ marginBottom: "70px" }}>
+      <Container fluid={true} style={{ marginBottom: "70px", backgroundColor: "rgba(255,255,255,0.5)" }}>
         <Row>
           {users.map((user, index) => {
             return (
@@ -46,18 +46,19 @@ const UserProfile = ({ users }) => {
                   <p>
                     {user.weight} kg, {user.height} cm
                   </p>
-                  <p>
-                    <span className={styles.runningSpan}>running</span>
-                    <span className={styles.pilatesSpan}>pilates</span>
-                    <span className={styles.yogaSpan}>yoga</span>
-                  </p>
-                  <p>
-                    <span className={styles.weightSpan}>weight lifting</span>
-                  </p>
-                </div>
-              </Col>
-            );
-          })}
+                    <p>
+                      <span className={styles.runningSpan}>running</span>
+                      <span className={styles.pilatesSpan}>pilates</span>
+                      <span className={styles.yogaSpan}>yoga</span>
+                    </p>
+                    <p>
+                      <span className={styles.weightSpan}>weight lifting</span>
+                    </p>
+                  </div>
+                </Col>
+              );
+            })
+          }
         </Row>
       </Container>
       <NavBar />

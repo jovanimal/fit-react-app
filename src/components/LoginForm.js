@@ -23,20 +23,20 @@ const LoginForm = ({
           <Image src={Hive} className={styles.logo} />
         </div>
         <div className={styles.form}>
-        <h4 className={styles.h4}>Log In</h4>
-        <Form>
-          <FormGroup>
-            <h6 className={styles.h6}>Username</h6>
-            <input type="text" onChange={handleUser} />
-          </FormGroup>
-          <FormGroup>
-            <h6 className={styles.h6}>Password</h6>
-            <input type="password" onChange={handlePassword} />
-          </FormGroup>
-          <Button className={styles.loginBtn} onClick={submitlog}>
-            log in
+          <h4 className={styles.h4}>Log In</h4>
+          <Form>
+            <FormGroup>
+              <h6 className={styles.h6}>Username</h6>
+              <input type="text" onChange={handleUser} />
+            </FormGroup>
+            <FormGroup>
+              <h6 className={styles.h6}>Password</h6>
+              <input type="password" onChange={handlePassword} />
+            </FormGroup>
+            <Button className={styles.loginBtn} onClick={submitlog} style={{ marginTop: "10px", height: "35px", lineHeight: "15px", border: "3px solid #fdbe83", backgroundColor: "transparent", borderRadius: "5px", color: "#f38c2c" }}>
+              log in
           </Button>
-        </Form>
+          </Form>
         </div>
       </div>
       <div className={styles.containerBottom}>

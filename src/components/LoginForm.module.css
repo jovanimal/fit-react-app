@@ -59,10 +59,6 @@ input {
   text-shadow: 1px 0px rgba(255, 188, 63, 0.75);
 }
 
-/* input:focus {
-  background-color: #fdbe83;
-} */
-
 .loginBtn {
   margin-top: 10px;
   height: 35px;
