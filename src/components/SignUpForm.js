@@ -158,7 +158,6 @@ const SignUpForm = () => {
             <label className={`hb hb-sm ${styles.hex}`} for="first"></label>
             <input type="checkbox" id="second" />
             <label className={`hb hb-sm ${styles.hex}`} for="second">
-              <br /> lifting
             </label>
             <input type="checkbox" id="third" />
             <label className={`hb hb-sm ${styles.hex}`} for="third"></label>

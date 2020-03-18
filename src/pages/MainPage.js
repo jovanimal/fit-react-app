@@ -26,7 +26,6 @@ const MainPage = () => {
       </div>
       <div className={styles.containerBottom}>
         <Button className={styles.logo} tag={Link} to="/" style={{ backgroundColor: "transparent", border: "none" }}>
-          {/* <p style={{ color: "white", fontSize: "1em" }}>LOGO</p> */}
           <Image src={Hive} className={styles.logo} />
         </Button>
       </div>

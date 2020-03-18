@@ -9,12 +9,13 @@ const HomePage = () => {
   return (
     <>
       <Button tag={Link} to="/login" style={{
-        height: "80vh", width: "100vw", display: "flex",
+        height: "100vh", width: "100vw", display: "flex",
         flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(255, 255, 255, 0.3)", border: "transparent"
       }}>
         <Image src={Hive} className={styles.logo} />
         <div className={styles.circle}>
         </div>
+        <p className={styles.tapHere}>Tap to start</p>
       </Button>
     </>
   )

@@ -1,14 +1,6 @@
-.containerTop {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: column;
-  background-color: aqua;
-}
-
 .logo {
   height: 250px;
+  margin-top: -70px;
 }
 
 .circle {
@@ -18,11 +10,19 @@
   width: 50px;
   background-color: transparent;
   border: 3px solid #fdbe83;
-  -webkit-animation: ping 1.2s ease-in-out 3s infinite both;
-  animation: ping 1.2s ease-in-out 3s infinite both;
+  -webkit-animation: ping 2s ease-in-out 2s infinite both;
+  animation: ping 2s ease-in-out 2s infinite both;
 }
 
+.tapHere {
+  -webkit-animation: blink-2 2s infinite both;
+  animation: blink-2 2s infinite both;
+  color: rgb(94, 126, 126);
+  margin-top: -35px;
+}
 
+/* ANIMATIONS */
+/* CIRCLE ANIMATION */
 @-webkit-keyframes ping {
   0% {
     -webkit-transform: scale(0.5);
@@ -55,5 +55,29 @@
     -webkit-transform: scale(2.2);
             transform: scale(2.2);
     opacity: 0;
+  }
+}
+
+/* TAP TO START ANIMATION */
+@-webkit-keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
   }
 }
