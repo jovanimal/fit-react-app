@@ -29,6 +29,7 @@ const UserProfile = ({ users }) => {
   return (
     <>
       <Container fluid={true} style={{ marginBottom: "70px", backgroundColor: "rgba(255,255,255,0.6)" }}>
+        {/* SAMPLE */}
         <Row style={{ marginTop: "100px" }}>
           <div className={styles.picIcon}>
             <Image src={defaultImage} className={styles.profilePic} />

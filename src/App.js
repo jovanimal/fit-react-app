@@ -10,6 +10,7 @@ import Challenges from "./pages/Challenges";
 import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
+import MentorForm from "./components/MentorForm"
 
 import axios from "axios";
 import { Route, useHistory } from "react-router-dom";
@@ -133,6 +134,9 @@ function App() {
       </Route>
       <Route path="/userprofile">
         <UserProfile users={users} />
+      </Route>
+      <Route path="/mentorform">
+        <MentorForm />
       </Route>
       <Route path="/navbar">
         <NavBar />

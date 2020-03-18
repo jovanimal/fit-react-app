@@ -9,6 +9,13 @@ const MainPage = () => {
   return (
     <>
       <div className={styles.containerTop}>
+        <Button tag={Link} to="/login" style={{
+          top: "20px", left: "20px", position: "absolute", borderRadius: "50%", height: "35px", width: "35px", fontSize: "2em", display: "flex",
+          paddingTop: "23px",
+          alignItems: "center", justifyContent: "center", backgroundColor: "#fdbe83", border: "none", color: "slategray"
+        }}>
+          <p>&lt;</p>
+        </Button>
         <div className={styles.buddyAnimate}>
           <a className={styles.buddyBtn} href="#">
             <span className="hb hb-md">
@@ -17,11 +24,11 @@ const MainPage = () => {
           </a>
         </div>
         <div className={styles.mentorAnimate}>
-          <a className={styles.mentorBtn} href="#">
+          <Button tag={Link} to="/mentorform" className={styles.mentorBtn} style={{ backgroundColor: "transparent", border: "none" }}>
             <span className="hb hb-md">
               MENTOR
           </span>
-          </a>
+          </Button>
         </div>
       </div>
       <div className={styles.containerBottom}>
