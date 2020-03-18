@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(` http://localhost:5000/api/v1/users/profile/${loggedUser}`)
+      .get(`https://fivehive.herokuapp.com/api/v1/users/profile/${loggedUser}`)
       .then(result => {
         setmyinfo(result.data);
         console.log("mounted");
@@ -85,18 +85,18 @@ function App() {
       });
   };
 
-  // test
-  useEffect(() => {
-    axios
-      .get(`https://fivehive.herokuapp.com/api/v1/users/show/1`)
-      .then(result => {
-        console.log(result.data);
-        setUsers(result.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  })
+  // test dalete me pls
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://fivehive.herokuapp.com/api/v1/users/show/1`)
+  //     .then(result => {
+  //       console.log(result.data);
+  //       setUsers(result.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // })
 
   return (
     <div className="App">
