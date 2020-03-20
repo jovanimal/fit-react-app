@@ -20,11 +20,13 @@ const NavBar = () => {
           Match
         </a>
       </div>
-      <div className={styles.grid}>
-        <Button tag={Link} to="/challenges">
-          <i class="fas fa-dumbbell"></i>
-          <br />
-          FIT
+      <div>
+        <Button tag={Link} to="/challenges" className={styles.fit}>
+          <span className={`hb hb-sm ${styles.hex}`}>
+            <i className={`fas fa-dumbbell ${styles.fitIcon}`}></i>
+            <br />
+            FIT
+          </span>
         </Button>
       </div>
       <div className={styles.grid}>

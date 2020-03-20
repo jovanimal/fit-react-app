@@ -17,7 +17,7 @@ const MainPage = ({ loggedUser, myinfo }) => {
           <p>&lt;</p>
         </Button>
         <div>
-          <h4>Welcome back, {myinfo.username}!</h4>
+          <h4 className={styles.h4}>Welcome back, {myinfo.username}!</h4>
           <h6 style={{ color: "darkslategray", marginBottom: "40px" }}>What are you looking for today?</h6>
         </div>
         <div className={styles.buddyAnimate}>

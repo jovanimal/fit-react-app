@@ -149,7 +149,6 @@
 .checkboxes input[type=checkbox]:checked + .hex::after {
   background-color: #fdbe83;
   border-color: transparent;
-
 }
 
 .hex, .hex::before, .hex::after{
