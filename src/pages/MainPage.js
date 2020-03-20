@@ -5,7 +5,7 @@ import { Button } from "reactstrap"
 import Hive from "../assets/images/5-hive.png"
 import Image from "react-graceful-image"
 
-const MainPage = () => {
+const MainPage = ({ loggedUser, myinfo }) => {
   return (
     <>
       <div className={styles.containerTop}>
@@ -16,12 +16,16 @@ const MainPage = () => {
         }}>
           <p>&lt;</p>
         </Button>
+        <div>
+          <h4>Welcome back, {myinfo.username}!</h4>
+          <h6 style={{ color: "darkslategray", marginBottom: "40px" }}>What are you looking for today?</h6>
+        </div>
         <div className={styles.buddyAnimate}>
-          <a className={styles.buddyBtn} href="#">
+          <Button tag={Link} to="/userprofile" className={styles.buddyBtn} style={{ backgroundColor: "transparent", border: "none" }}>
             <span className="hb hb-md">
               BUDDY
           </span>
-          </a>
+          </Button>
         </div>
         <div className={styles.mentorAnimate}>
           <Button tag={Link} to="/mentorform" className={styles.mentorBtn} style={{ backgroundColor: "transparent", border: "none" }}>

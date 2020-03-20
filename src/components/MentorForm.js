@@ -76,26 +76,64 @@ const MentorForm = () => {
     (
       <div className={styles.step1}>
         <h4>Do you have a gender <br />preference for your trainer?</h4>
+        <label>
+          <input type="checkbox" />
+          Male
+        </label>
+        <label>
+          <input type="checkbox" />
+          Female
+        </label>
+        <label>
+          <input type="checkbox" />
+          No preference
+        </label>
       </div>
     ),
     (
       <div className={styles.step2}>
         <h4>Do you prefer to train alone <br />or in a group?</h4>
+        <label>
+          <input type="checkbox" />
+          Alone
+        </label>
+        <label>
+          <input type="checkbox" />
+          In a group
+        </label>
       </div>
     ),
     (
       <div className={styles.step1}>
         <h4>How often would you like to train?</h4>
+        <label>
+          <input type="checkbox" />
+          Daily
+      </label>
+        <label>
+          <input type="checkbox" />
+          3-4 times a week
+      </label>
+        <label>
+          <input type="checkbox" />
+          Less than 3 times a week
+      </label>
+        <label>
+          <input type="checkbox" />
+          I would like a recommendation
+      </label>
       </div>
     ),
     (
       <div className={styles.step2}>
         <h4>Is there anything else you <br />would like us to know?</h4>
+        <textarea rows="2" />
       </div>
     ),
     (
       <div className={styles.step1}>
         <h4>Ok great! <br />When would you like to start?</h4>
+        <input type="date" />
       </div>
     ),
     (

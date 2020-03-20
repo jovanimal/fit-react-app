@@ -31,6 +31,7 @@ function App() {
       .get(`https://fivehive.herokuapp.com/api/v1/users/profile/${loggedUser}`)
       .then(result => {
         setmyinfo(result.data);
+        history.push("/main");
         console.log("mounted");
       })
       .catch(console.log("cannot render page"));
@@ -62,11 +63,8 @@ function App() {
         .then(result => {
           console.log(result.data[1]);
           showUsers(result.data[1]);
-          setTimeout(() => {
-            setisloggedin(true);
-            setloggedUser(result.data[1]);
-            history.push("/userprofile");
-          }, 300);
+          setisloggedin(true);
+          setloggedUser(result.data[1]);
         })
         .catch(error => {
           console.log("cannot leh");
@@ -121,7 +119,7 @@ function App() {
         <SignUpForm />
       </Route>
       <Route path="/main">
-        <MainPage />
+        <MainPage loggedUser={loggedUser} myinfo={myinfo} />
       </Route>
       <Route path="/nearby">
         <UserProfile users={users} />

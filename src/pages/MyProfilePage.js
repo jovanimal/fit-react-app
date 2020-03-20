@@ -57,8 +57,8 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
       <Container fluid={true} className={styles.fullPage}>
         <Row>
           <div className={styles.username}>
-            <span>username</span>
-            {/* <span>{myinfo.username}</span> */}
+            {/* <span>username</span> */}
+            <span>{myinfo.username}</span>
           </div>
         </Row>
         <Row className={styles.userInfo}>
@@ -67,16 +67,16 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
           </Col>
           <Col xs="8" className={styles.column}>
             <Row>
-              11
-                {/* {myinfo.age} */}
+              {/* 11 */}
+              {myinfo.age}
             </Row>
             <Row>
-              cm, kg
-                {/* {myinfo.height} cm, {myinfo.weight} kg */}
+              {/* cm, kg */}
+              {myinfo.height} cm, {myinfo.weight} kg
             </Row>
             <Row>
-              years of training
-                {/* {myinfo.years_of_training} years of training */}
+              {/* years of training */}
+              {myinfo.years_of_training} years of training
             </Row>
             <Row className={styles.exerciseTags}>
               <span style={{ fontSize: "0.9em", border: "2px solid #f8a456", borderRadius: "10px", color: "#f8a456" }}>jogging</span>
