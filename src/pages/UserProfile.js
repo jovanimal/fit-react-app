@@ -2,13 +2,9 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import {
   Col,
-  Card,
-  CardBody,
-  CardTitle,
+  Button,
   Container,
   Row,
-  CardSubtitle,
-  CardText
 } from "reactstrap";
 import Image from "react-graceful-image";
 import defaultImage from "../assets/images/default-profile.png";
@@ -29,8 +25,16 @@ const UserProfile = ({ users }) => {
   return (
     <>
       <Container fluid={true} style={{ marginBottom: "70px", backgroundColor: "rgba(255,255,255,0.6)" }}>
+        <Row style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
+          <Button style={{ backgroundColor: "rgba(255,255,255,0.6)", border: "1px solid #fdbe83", color: "#f38c2c", width: "45%", height: "30px", borderRadius: "10px", padding: "0" }}>
+            B U D D Y
+          </Button>
+          <Button style={{ backgroundColor: "rgba(255,255,255,0.6)", border: "1px solid #fdbe83", color: "#f38c2c", width: "45%", height: "30px", borderRadius: "10px", padding: "0" }}>
+            M E N T O R
+          </Button>
+        </Row>
         {/* SAMPLE */}
-        <Row style={{ marginTop: "100px" }}>
+        {/* <Row style={{ marginTop: "100px" }}>
           <div className={styles.picIcon}>
             <Image src={defaultImage} className={styles.profilePic} />
             <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-venus" style={{ color: "pink" }}></i></span></a>
@@ -39,7 +43,7 @@ const UserProfile = ({ users }) => {
             <Image src={defaultImage} className={styles.profilePic} />
             <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-mars" style={{ color: "lightblue" }}></i></span></a>
           </div>
-        </Row>
+        </Row> */}
         <Row>
           {users.map((user, index) => {
             return (

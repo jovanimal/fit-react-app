@@ -9,6 +9,13 @@
 
 .container {
   margin-top: 80px;
+  padding: 20px 0;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 5px double #fdbe83;
+  border-bottom: 7px double #fdbe83;
 }
 
 .step1 {
@@ -70,6 +77,90 @@
   color: #f57e10;
 }
 
+.row1 {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.row2 {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 55%;
+}
+
+.row3 {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 65%;
+}
+
+.row4 {
+  margin-left: 40px;
+  margin-top: 40px;
+  width: 55%;
+}
+
+.row5 {
+  margin-left: 95px;
+  margin-top: 20px;
+  width: 55%;
+}
+
+.checkboxes {
+  transform: scale(1.45);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.checkboxes input[type=checkbox]{
+  display: none;
+}
+
+.checkboxes input[type=checkbox]:checked + .hex {
+  background-color: #fdbe83;
+  border-color: transparent;
+  color: rgb(77, 92, 92);
+}
+
+.checkboxes input[type=checkbox]:checked + .hex::before {
+  background-color: #fdbe83;
+  border-color: transparent;
+}
+
+.checkboxes input[type=checkbox]:checked + .hex::after {
+  background-color: #fdbe83;
+  border-color: transparent;
+
+}
+
+.hex, .hex::before, .hex::after{
+  background-color: rgba(255,255,255,0.3);
+  border-color: #f39a48;
+  color: #f39a48;
+  font-size: 0.8em;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hex:hover, .hex:hover:before, .hex:hover:after{
+  background-color: transparent;
+  border-color: #f39a48;
+  color: #f39a48;
+}
+
+textarea {
+  border: 1px solid #fdbe83;
+}
+
+input[type=date] {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
 
 /* ANIMATIONS */
 

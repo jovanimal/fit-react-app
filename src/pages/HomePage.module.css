@@ -10,8 +10,8 @@
   width: 50px;
   background-color: transparent;
   border: 3px solid #fdbe83;
-  -webkit-animation: ping 2s ease-in-out 2s infinite both;
-  animation: ping 2s ease-in-out 2s infinite both;
+  -webkit-animation: ping ease-in-out 2s infinite both;
+  animation: ping ease-in-out 2s infinite both;
 }
 
 .tapHere {
