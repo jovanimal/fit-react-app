@@ -10,6 +10,7 @@ import Challenges from "./pages/Challenges";
 import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
+import MentorForm from "./components/MentorForm"
 
 import axios from "axios";
 import { Route, useHistory } from "react-router-dom";
@@ -27,9 +28,10 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(` http://localhost:5000/api/v1/users/profile/${loggedUser}`)
+      .get(`https://fivehive.herokuapp.com/api/v1/users/profile/${loggedUser}`)
       .then(result => {
         setmyinfo(result.data);
+        history.push("/main");
         console.log("mounted");
       })
       .catch(console.log("cannot render page"));
@@ -61,11 +63,8 @@ function App() {
         .then(result => {
           console.log(result.data[1]);
           showUsers(result.data[1]);
-          setTimeout(() => {
-            setisloggedin(true);
-            setloggedUser(result.data[1]);
-            history.push("/userprofile");
-          }, 300);
+          setisloggedin(true);
+          setloggedUser(result.data[1]);
         })
         .catch(error => {
           console.log("cannot leh");
@@ -85,18 +84,18 @@ function App() {
       });
   };
 
-  // test
-  useEffect(() => {
-    axios
-      .get(`https://fivehive.herokuapp.com/api/v1/users/show/1`)
-      .then(result => {
-        console.log(result.data);
-        setUsers(result.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  })
+  // test dalete me pls
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://fivehive.herokuapp.com/api/v1/users/show/1`)
+  //     .then(result => {
+  //       console.log(result.data);
+  //       setUsers(result.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // })
 
   return (
     <div className="App">
@@ -120,7 +119,7 @@ function App() {
         <SignUpForm />
       </Route>
       <Route path="/main">
-        <MainPage />
+        <MainPage loggedUser={loggedUser} myinfo={myinfo} />
       </Route>
       <Route path="/nearby">
         <UserProfile users={users} />
@@ -133,6 +132,9 @@ function App() {
       </Route>
       <Route path="/userprofile">
         <UserProfile users={users} />
+      </Route>
+      <Route path="/mentorform">
+        <MentorForm />
       </Route>
       <Route path="/navbar">
         <NavBar />

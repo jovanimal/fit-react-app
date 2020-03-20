@@ -154,22 +154,21 @@ const SignUpForm = () => {
         <h5>What are your preferred exercises?</h5>
         <div className={styles.row1}>
           <div className={styles.checkboxes}>
-            <input type="checkbox" id="first" />
-            <label className={`hb hb-sm ${styles.hex}`} for="first"></label>
-            <input type="checkbox" id="second" />
-            <label className={`hb hb-sm ${styles.hex}`} for="second">
-              <br /> lifting
+            <input type="checkbox" id="sixth" />
+            <label className={`hb hb-sm ${styles.hex}`} for="sixth"></label>
+            <input type="checkbox" id="seventh" />
+            <label className={`hb hb-sm ${styles.hex}`} for="seventh">
             </label>
-            <input type="checkbox" id="third" />
-            <label className={`hb hb-sm ${styles.hex}`} for="third"></label>
+            <input type="checkbox" id="eighth" />
+            <label className={`hb hb-sm ${styles.hex}`} for="eighth"></label>
           </div>
         </div>
         <div className={styles.row2}>
           <div className={styles.checkboxes}>
-            <input type="checkbox" id="fourth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="fourth"></label>
-            <input type="checkbox" id="fifth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="fifth"></label>
+            <input type="checkbox" id="ninth" />
+            <label className={`hb hb-sm ${styles.hex}`} for="ninth"></label>
+            <input type="checkbox" id="tenth" />
+            <label className={`hb hb-sm ${styles.hex}`} for="tenth"></label>
           </div>
         </div>
       </Form>

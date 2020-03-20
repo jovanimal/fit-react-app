@@ -28,36 +28,49 @@ years_of_training:
 const UserProfile = ({ users }) => {
   return (
     <>
-      <Container fluid={true} style={{ marginBottom: "70px", backgroundColor: "rgba(255,255,255,0.5)" }}>
+      <Container fluid={true} style={{ marginBottom: "70px", backgroundColor: "rgba(255,255,255,0.6)" }}>
+        {/* SAMPLE */}
+        <Row style={{ marginTop: "100px" }}>
+          <div className={styles.picIcon}>
+            <Image src={defaultImage} className={styles.profilePic} />
+            <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-venus" style={{ color: "pink" }}></i></span></a>
+          </div>
+          <div className={styles.picIcon}>
+            <Image src={defaultImage} className={styles.profilePic} />
+            <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-mars" style={{ color: "lightblue" }}></i></span></a>
+          </div>
+        </Row>
         <Row>
           {users.map((user, index) => {
             return (
               <Col key={index} xs="6" md="4">
-                <div
-                  style={{
-                    border: "1px solid black",
-                    borderRadius: "10px",
-                    margin: "10px -5px"
-                  }}
-                >
-                  <Image src={defaultImage} className={styles.profilePic} />
+                <div className={styles.eachUser}>
+                  <div className={styles.line1}></div>
+                  <div className={styles.line2}></div>
+                  <div className={styles.line3}></div>
+                  <div className={styles.line4}></div>
+                  <div className={styles.picIcon}>
+                    <Image src={defaultImage} className={styles.profilePic} />
+                    <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-mars" style={{ color: "lightblue" }}></i></span></a>
+                  </div>
                   <h4>{user.username}</h4>
                   <h6>{user.age}</h6>
                   <p>
                     {user.weight} kg, {user.height} cm
                   </p>
-                    <p>
-                      <span className={styles.runningSpan}>running</span>
-                      <span className={styles.pilatesSpan}>pilates</span>
-                      <span className={styles.yogaSpan}>yoga</span>
-                    </p>
-                    <p>
-                      <span className={styles.weightSpan}>weight lifting</span>
-                    </p>
-                  </div>
-                </Col>
-              );
-            })
+                  <hr />
+                  <p>
+                    <span className={styles.runningSpan}>running</span>
+                    <span className={styles.pilatesSpan}>pilates</span>
+                    <span className={styles.yogaSpan}>yoga</span>
+                  </p>
+                  {/* <p>
+                    <span className={styles.weightSpan}>weight lifting</span>
+                  </p> */}
+                </div>
+              </Col>
+            );
+          })
           }
         </Row>
       </Container>

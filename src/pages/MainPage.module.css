@@ -1,17 +1,16 @@
 .containerTop {
   height: 80vh;
-  /* border: 1px solid white; */
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: content-box;
   flex-direction: column;
   background-color: rgba(255,255,255,0.5);
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .containerBottom {
   height: 20vh;
-  /* border: 1px solid white; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +20,6 @@
 }
 
 .logo {
-  /* border: 1px solid white; */
   height: 100px;
   text-align: center;
   display: flex;
@@ -32,11 +30,12 @@
 /* BUDDY BUTTON */
 .buddyBtn span {
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: bolder;
   color: darkslategray;
   /* background-color: #c8a3b5; */
   background-color: #fdbe83;
   border: transparent;
+  border-radius: 0;
 }
 
 .buddyBtn span::before {
@@ -62,11 +61,12 @@
 /* MENTOR BUTTON */
 .mentorBtn span {
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: bolder;
   color: darkslategray;
   /* background-color: #6ca3cf; */
   background-color: #fdbe83;
   border: transparent;
+  border-radius: 0;
 }
 
 .mentorBtn span::before {
@@ -90,15 +90,15 @@
   transform: scale(1.25);
 }
 
-.hb-custom {
-  size: 200px;
-}
 
+/* ANIMATIONS */
+/* FROM RIGHT TO LEFT */
 @keyframes mymove {
   from {left: 200px; opacity: 0.2}
   to {left: -45px; opacity: 0.9}
 }
 
+/* FROM LEFT TO RIGHT */
 @keyframes mymove2 {
   from {right: 200px; opacity: 0.2}
   to {right: -45px; opacity: 0.9}

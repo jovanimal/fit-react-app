@@ -96,8 +96,6 @@ input {
 .userBtn span::after {
   background-color: #fdbe83;
   border: transparent;
-  /* background-color: #c8a3b5; */
-  /* border-color: #fdbe83; */
 }
 
 .userBtn span:hover,
@@ -120,25 +118,18 @@ input {
   line-height: 35px;
   background-color: #fdbe83;
   border: transparent;
-  /* border-color: #fdbe83; */
   margin: 0px 5px;
   border-radius: 0;
 }
 
 .mentorBtn span::before {
-  /* background-color: #6ca3cf; */
   background-color: #fdbe83;
   border: transparent;
-  /* background-color: transparent; */
-  /* border-color: #fdbe83; */
 }
 
 .mentorBtn span::after {
-  /* background-color: #6ca3cf;*/
   background-color: #fdbe83;
   border: transparent;
-  /* background-color: transparent; */
-  /* border-color: #fdbe83; */
 }
 
 .mentorBtn span:hover,
@@ -148,6 +139,8 @@ input {
   color: #6ca3cf;
 }
 
+
+/* SLIDE IN FROM RIGHT ANIMATION */
 @keyframes mymove {
   from {
     left: 200px;
