@@ -10,12 +10,22 @@ import Challenges from "./pages/Challenges";
 import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
-import MentorForm from "./components/MentorForm"
+import MentorForm from "./components/MentorForm";
+import { ChatkitProvider, TokenProvider } from "@pusher/chatkit-client-react";
+import Chat from "./pages/Chat";
+import ChatUserList from "./pages/ChatUserList";
 
 import axios from "axios";
 import { Route, useHistory } from "react-router-dom";
 // import { ToastContainer, toast } from "react-toastify";
 // import Image from "react-graceful-image";
+
+const instanceLocator = "v1:us1:517acb7c-ec40-4c79-b4ac-6117f551be7a";
+
+const tokenProvider = new TokenProvider({
+  url:
+    "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/517acb7c-ec40-4c79-b4ac-6117f551be7a/token"
+});
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -25,6 +35,9 @@ function App() {
   const [passwordInput, setpasswordInput] = useState("");
   const [loggedUser, setloggedUser] = useState("");
   const [myinfo, setmyinfo] = useState(null);
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get("userId");
+  const otherUserId = urlParams.get("otherUserId");
 
   useEffect(() => {
     axios
@@ -138,6 +151,17 @@ function App() {
       </Route>
       <Route path="/navbar">
         <NavBar />
+      </Route>
+      <Route path="/chat">
+        {loggedUser ? (
+          <>
+            <div className="App__chatwindow">
+              <ChatUserList myinfo={myinfo} />
+            </div>
+          </>
+        ) : (
+          <SignUpForm />
+        )}
       </Route>
     </div>
   );
