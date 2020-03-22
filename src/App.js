@@ -10,7 +10,8 @@ import Challenges from "./pages/Challenges";
 import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
-import MentorForm from "./components/MentorForm"
+import MentorForm from "./components/MentorForm";
+import TestHomePage from "./pages/TestHomePage"
 
 import axios from "axios";
 import { Route, useHistory } from "react-router-dom";
@@ -31,7 +32,7 @@ function App() {
       .get(`https://fivehive.herokuapp.com/api/v1/users/profile/${loggedUser}`)
       .then(result => {
         setmyinfo(result.data);
-        history.push("/main");
+        setIsLoading(false)
         console.log("mounted");
       })
       .catch(console.log("cannot render page"));
@@ -61,6 +62,7 @@ function App() {
         }
       })
         .then(result => {
+          history.push("/main");
           console.log(result.data[1]);
           showUsers(result.data[1]);
           setisloggedin(true);
@@ -119,7 +121,8 @@ function App() {
         <SignUpForm />
       </Route>
       <Route path="/main">
-        <MainPage loggedUser={loggedUser} myinfo={myinfo} />
+        <MainPage loggedUser={loggedUser} myinfo={myinfo}
+          isLoading={isLoading} />
       </Route>
       <Route path="/nearby">
         <UserProfile users={users} />
@@ -138,6 +141,12 @@ function App() {
       </Route>
       <Route path="/navbar">
         <NavBar />
+      </Route>
+      <Route path="/test">
+        <TestHomePage
+          handleUser={handleUser}
+          handlePassword={handlePassword}
+          submitlog={submitlog} />
       </Route>
     </div>
   );
