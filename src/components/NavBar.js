@@ -28,11 +28,11 @@ const NavBar = () => {
         </Button>
       </div>
       <div className={styles.grid}>
-        <a href="#chat">
+        <Button tag={Link} to="/chat">
           <i class="fas fa-comments"></i>
           <br />
           Chat
-        </a>
+        </Button>
       </div>
       <div className={styles.grid}>
         <Button tag={Link} to="/myprofile">
