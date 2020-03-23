@@ -6,22 +6,22 @@ import { Button } from "reactstrap";
 const NavBar = () => {
   return (
     <div className={styles.navbar}>
-      <div className={styles.grid}>
-        <Button tag={Link} to="/nearby" className="active">
+      <div>
+        <Button tag={Link} to="/nearby" className={styles.grid} style={{ color: "#cf6f15" }}>
           <i class="fas fa-street-view"></i>
           <br />
           Nearby
         </Button>
       </div>
-      <div className={styles.grid}>
-        <a href="#match">
+      <div>
+        <Button tag={Link} to="#" className={styles.grid} style={{ color: "#e47915" }}>
           <i class="fas fa-user-friends"></i>
           <br />
           Match
-        </a>
+        </Button>
       </div>
       <div>
-        <Button tag={Link} to="/challenges" className={styles.fit}>
+        <Button tag={Link} to="/challenges" className={styles.fit} style={{ color: "#fcefe3" }}>
           <span className={`hb hb-sm ${styles.hex}`}>
             <i className={`fas fa-dumbbell ${styles.fitIcon}`}></i>
             <br />
@@ -29,15 +29,15 @@ const NavBar = () => {
           </span>
         </Button>
       </div>
-      <div className={styles.grid}>
-        <a href="#chat">
+      <div>
+        <Button tag={Link} to="#" className={styles.grid} style={{ color: "#fcfcfc" }}>
           <i class="fas fa-comments"></i>
           <br />
           Chat
-        </a>
+        </Button>
       </div>
-      <div className={styles.grid}>
-        <Button tag={Link} to="/myprofile">
+      <div>
+        <Button tag={Link} to="/myprofile" className={styles.grid}>
           <i class="fas fa-user"></i>
           <br />
           Profile

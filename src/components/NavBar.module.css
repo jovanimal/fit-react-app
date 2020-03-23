@@ -1,13 +1,15 @@
 .navbar {
   overflow: inherit;
-  background-color: #333;
+  background-image: linear-gradient(to right, #f5d6bb, #f8963b);
+  border-top: 6px double white;
   position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  max-height: 63px;
+  max-height: 64px;
   font-family: 'Roboto Condensed', sans-serif;
+  padding-top: -10px;
 }
 
 .navbar a {
@@ -26,13 +28,33 @@
   color: black;
 }
 
-.navbar a.active {
-  background-color: #4caf50;
-  color: white;
+.grid {
+  background-color: transparent !important;
+  border: none !important;
+  font-weight: bolder !important;
+  font-size: 1em !important;
+  padding-top: 5px !important;
+  padding-bottom: 3px !important;
 }
 
+/* .nearby {
+  color: #cf6f15 !important;
+} */
+
+/* .match {
+  color: #e47915 !important;
+} */
+
+/* .chat {
+  color: #fcefe3 !important;
+} */
+
+/* .profile {
+  color: #fcfcfc !important;
+} */
+
 .hex, .hex::before, .hex::after{
-  background-color: #f39a48;
+  background-color: #fa8e29;
   border-color: #f39a48;
   border-radius: 0;
   color: darkslategray;
