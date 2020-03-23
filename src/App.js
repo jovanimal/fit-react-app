@@ -166,6 +166,7 @@ function App() {
               </ChatkitProvider>
             </div>
           </div>
+          <NavBar />
         </>
       </Route>
     </div>
