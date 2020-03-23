@@ -20,11 +20,11 @@ import { Route, useHistory } from "react-router-dom";
 // import { ToastContainer, toast } from "react-toastify";
 // import Image from "react-graceful-image";
 
-const instanceLocator = "v1:us1:517acb7c-ec40-4c79-b4ac-6117f551be7a";
+const instanceLocator = "v1:us1:8d826e51-c074-43ba-a02f-7ad846b27f89";
 
 const tokenProvider = new TokenProvider({
   url:
-    "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/517acb7c-ec40-4c79-b4ac-6117f551be7a/token"
+    "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/8d826e51-c074-43ba-a02f-7ad846b27f89/token"
 });
 
 function App() {
@@ -36,8 +36,8 @@ function App() {
   const [loggedUser, setloggedUser] = useState("");
   const [myinfo, setmyinfo] = useState(null);
   const urlParams = new URLSearchParams(window.location.search);
-  const userId = urlParams.get("userId");
-  const otherUserId = urlParams.get("otherUserId");
+  const userId = "ridza";
+  const otherUserId = "matt";
 
   useEffect(() => {
     axios
@@ -153,15 +153,20 @@ function App() {
         <NavBar />
       </Route>
       <Route path="/chat">
-        {loggedUser ? (
-          <>
+        <>
+          <div className="App__chatframe">
             <div className="App__chatwindow">
-              <ChatUserList myinfo={myinfo} />
+              <ChatkitProvider
+                instanceLocator={instanceLocator}
+                tokenProvider={tokenProvider}
+                userId={userId}
+              >
+                <ChatUserList userId={userId} />
+                <Chat otherUserId={otherUserId} />
+              </ChatkitProvider>
             </div>
-          </>
-        ) : (
-          <SignUpForm />
-        )}
+          </div>
+        </>
       </Route>
     </div>
   );

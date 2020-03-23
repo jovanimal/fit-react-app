@@ -2,7 +2,7 @@ import Moment from "react-moment";
 import React, { useState, useEffect } from "react";
 import { withChatkitOneToOne } from "@pusher/chatkit-client-react";
 
-import "./Chat.module.css";
+import "./Chat.css";
 import defaultAvatar from "../assets/images/default-profile.png";
 
 function Chat(props) {
