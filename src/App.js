@@ -14,7 +14,8 @@ import MentorForm from "./components/MentorForm";
 import TestHomePage from "./pages/TestHomePage"
 
 import axios from "axios";
-import { Route, useHistory } from "react-router-dom";
+import { Route, useHistory, Switch } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 // import { ToastContainer, toast } from "react-toastify";
 // import Image from "react-graceful-image";
 
@@ -101,53 +102,62 @@ function App() {
 
   return (
     <div className="App">
-      <Route exact path="/">
-        <HomePage />
-      </Route>
-      <Route path="/login">
-        <LoginForm
-          isloggedin={isloggedin}
-          setisloggedin={setisloggedin}
-          usernameInput={usernameInput}
-          setusernameInput={usernameInput}
-          passwordInput={passwordInput}
-          setpasswordInput={setpasswordInput}
-          handleUser={handleUser}
-          handlePassword={handlePassword}
-          submitlog={submitlog}
-        />
-      </Route>
-      <Route path="/signup">
-        <SignUpForm />
-      </Route>
-      <Route path="/main">
-        <MainPage loggedUser={loggedUser} myinfo={myinfo}
-          isLoading={isLoading} />
-      </Route>
-      <Route path="/nearby">
-        <UserProfile users={users} />
-      </Route>
-      <Route path="/challenges">
-        <Challenges />
-      </Route>
-      <Route path="/myprofile">
-        <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} />
-      </Route>
-      <Route path="/userprofile">
-        <UserProfile users={users} />
-      </Route>
-      <Route path="/mentorform">
-        <MentorForm />
-      </Route>
-      <Route path="/navbar">
-        <NavBar />
-      </Route>
-      <Route path="/test">
-        <TestHomePage
-          handleUser={handleUser}
-          handlePassword={handlePassword}
-          submitlog={submitlog} />
-      </Route>
+      <Route render={({ location }) => (
+        <TransitionGroup>
+          <CSSTransition
+            key={location.key}
+            timeout={1000}
+            classNames="fade"
+          >
+            <Switch location={location}>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route path="/login">
+                <LoginForm
+                  isloggedin={isloggedin}
+                  setisloggedin={setisloggedin}
+                  usernameInput={usernameInput}
+                  setusernameInput={usernameInput}
+                  passwordInput={passwordInput}
+                  setpasswordInput={setpasswordInput}
+                  handleUser={handleUser}
+                  handlePassword={handlePassword}
+                  submitlog={submitlog}
+                />
+              </Route>
+              <Route path="/signup">
+                <SignUpForm />
+              </Route>
+              <Route path="/main">
+                <MainPage loggedUser={loggedUser} myinfo={myinfo}
+                  isLoading={isLoading} />
+              </Route>
+              <Route path="/nearby">
+                <UserProfile users={users} />
+              </Route>
+              <Route path="/challenges">
+                <Challenges />
+              </Route>
+              <Route path="/myprofile">
+                <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} />
+              </Route>
+              <Route path="/userprofile">
+                <UserProfile users={users} />
+              </Route>
+              <Route path="/mentorform">
+                <MentorForm />
+              </Route>
+              <Route path="/test">
+                <TestHomePage
+                  handleUser={handleUser}
+                  handlePassword={handlePassword}
+                  submitlog={submitlog} />
+              </Route>
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+      )} />
     </div>
   );
 }

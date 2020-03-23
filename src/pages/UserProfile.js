@@ -23,7 +23,7 @@ years_of_training:
 
 const UserProfile = ({ users }) => {
   return (
-    <>
+    <div className="page">
       <Container fluid={true} style={{ marginBottom: "70px", backgroundColor: "rgba(255,255,255,0.6)" }}>
         <Row>
           {users.map((user, index) => {
@@ -78,7 +78,7 @@ const UserProfile = ({ users }) => {
         </Row>
       </Container>
       <NavBar />
-    </>
+    </div>
   );
 };
 
