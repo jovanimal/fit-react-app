@@ -17,7 +17,7 @@ const LoginForm = ({
   submitlog
 }) => {
   return (
-    <>
+    <div className="page">
       <div className={styles.containerTop}>
         <div>
           <Image src={Hive} className={styles.logo} />
@@ -54,7 +54,7 @@ const LoginForm = ({
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@ import Hive from '../assets/images/5-hive.png'
 
 const HomePage = () => {
   return (
-    <>
+    <div className="page">
       <Button tag={Link} to="/login" style={{
         height: "100vh", width: "100vw", display: "flex",
         flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(255, 255, 255, 0.3)", border: "transparent"
@@ -17,7 +17,7 @@ const HomePage = () => {
         </div>
         <p className={styles.tapHere}>Tap to start</p>
       </Button>
-    </>
+    </div>
   )
 };
 

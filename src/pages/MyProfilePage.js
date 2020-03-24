@@ -65,7 +65,7 @@ const MyProfilePage = ({ loggedUser, myinfo, setmyinfo }) => {
   };
 
   return (
-    <>
+    <div className="page">
       <Container fluid={true} className={styles.fullPage}>
         <Row>
           <div className={styles.username}>
@@ -183,7 +183,7 @@ const MyProfilePage = ({ loggedUser, myinfo, setmyinfo }) => {
         </div>
       </Container>
       <NavBar />
-    </>
+    </div>
   );
 };
 

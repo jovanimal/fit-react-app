@@ -8,6 +8,20 @@ import styles from "./SignUpForm.module.css";
 const SignUpForm = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [slider, setslider] = useState(5);
+  const [checkboxes, setCheckboxes] = useState({
+    pilates: false,
+    weight: false,
+    yoga: false,
+    swimming: false,
+    jogging: false
+  })
+
+  const handleCheckbox = e => {
+    let newCheckboxes = { ...checkboxes }
+    newCheckboxes[e.target.name] = !checkboxes[e.target.name]
+    setCheckboxes(newCheckboxes)
+    console.log(newCheckboxes)
+  }
 
   const handleSlider = e => {
     setslider(e.target.value);
@@ -124,16 +138,16 @@ const SignUpForm = () => {
         <h5>What are your preferred exercises?</h5>
         <div className={styles.row1}>
           <div className={styles.checkboxes}>
-            <input type="checkbox" id="first" />
+            <input type="checkbox" id="first" name="pilates" onChange={handleCheckbox} {...checkboxes.pilates ? { checked: true } : { checked: false }} />
             <label className={`hb hb-sm ${styles.hex}`} for="first">
               pilates
             </label>
-            <input type="checkbox" id="second" />
+            <input type="checkbox" id="second" name="weight" onChange={handleCheckbox} {...checkboxes.weight ? { checked: true } : { checked: false }} />
             <label className={`hb hb-sm ${styles.hex}`} for="second">
               weight
               <br /> lifting
             </label>
-            <input type="checkbox" id="third" />
+            <input type="checkbox" id="third" name="yoga" onChange={handleCheckbox} {...checkboxes.yoga ? { checked: true } : { checked: false }} />
             <label className={`hb hb-sm ${styles.hex}`} for="third">
               yoga
             </label>
@@ -141,10 +155,14 @@ const SignUpForm = () => {
         </div>
         <div className={styles.row2}>
           <div className={styles.checkboxes}>
-            <input type="checkbox" id="fourth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="fourth">swimming</label>
-            <input type="checkbox" id="fifth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="fifth">jogging</label>
+            <input type="checkbox" id="fourth" name="swimming" onChange={handleCheckbox} {...checkboxes.swimming ? { checked: true } : { checked: false }} />
+            <label className={`hb hb-sm ${styles.hex}`} for="fourth">
+              swimming
+            </label>
+            <input type="checkbox" id="fifth" name="jogging" onChange={handleCheckbox} {...checkboxes.jogging ? { checked: true } : { checked: false }} />
+            <label className={`hb hb-sm ${styles.hex}`} for="fifth">
+              jogging
+            </label>
           </div>
         </div>
       </Form>
