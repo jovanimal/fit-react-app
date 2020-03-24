@@ -1,3 +1,5 @@
+## Remember to `npm install` when you pull from master EVERY TIME to install the package(s) someone else did, if there is any.
+
 # Things to note for our Group Project
 
 1. Use `git pull` to pull the latest updates or `git clone` from master branch for the first time.
