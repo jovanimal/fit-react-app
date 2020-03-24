@@ -1,4 +1,4 @@
-## Remember to `npm install` when you pull from master EVERY TIME to install the package(s) someone else did, if there is any.
+## Remember to `npm install` right after you pull from master EVERY TIME to install the package(s) someone else did, if there is any.
 
 # Things to note for our Group Project
 
