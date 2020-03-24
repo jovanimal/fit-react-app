@@ -27,25 +27,39 @@
   justify-content: center;
 }
 
+.h4 {
+  margin-bottom: 15px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: darkslategray;
+  text-shadow: 2px 1px rgba(255, 188, 63, 0.75);
+}
+
 /* BUDDY BUTTON */
 .buddyBtn span {
-  font-size: 1.5em;
-  font-weight: bolder;
-  color: darkslategray;
-  /* background-color: #c8a3b5; */
   background-color: #fdbe83;
-  border: transparent;
   border-radius: 0;
+  border-color: #fdbe83;
+}
+
+.buddyBtn span h6 {
+  font-weight: bold;
+  font-size: 0.4em;
+  margin-top: 18px;
+  transform: scaleY(1.2);
+  color: rgb(105, 98, 85);
+  -webkit-text-stroke-width: 0.3px;
+  /* -webkit-text-stroke-color: black; */
+  -webkit-text-stroke-color: rgb(105, 98, 85);
+  /* text-shadow: 2px 1px rgba(238, 99, 99, 0.75); */
+  text-shadow: 1px 1px rgb(241, 159, 5), 2px 2px rgb(226, 159, 5), 3px 3px rgb(226,149, 7);
 }
 
 .buddyBtn span::before {
-  /* background-color: #c8a3b5; */
   background-color: #fdbe83;
   border: transparent;
 }
 
 .buddyBtn span::after {
-  /* background-color: #c8a3b5; */
   background-color: #fdbe83;
   border: transparent;
 }
@@ -60,13 +74,23 @@
 
 /* MENTOR BUTTON */
 .mentorBtn span {
-  font-size: 1.5em;
-  font-weight: bolder;
-  color: darkslategray;
-  /* background-color: #6ca3cf; */
   background-color: #fdbe83;
-  border: transparent;
+  border-color: #fdbe83;
   border-radius: 0;
+}
+
+.mentorBtn span h6 {
+  font-weight: bold;
+  font-size: 0.35em;
+  margin-top: 20px;
+  margin-right: -5px;
+  transform: scaleY(1.4);
+  color: rgb(105, 98, 85);
+  -webkit-text-stroke-width: 0.3px;
+  /* -webkit-text-stroke-color: black; */
+  -webkit-text-stroke-color: rgb(105, 98, 85);
+  /* text-shadow: 2px 1px rgba(238, 99, 99, 0.75); */
+  text-shadow: -1px 1px rgb(241, 159, 5), -2px 2px rgb(241, 159, 5), -3px 3px rgb(226,149, 7);
 }
 
 .mentorBtn span::before {

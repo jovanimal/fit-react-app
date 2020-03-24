@@ -11,12 +11,14 @@ import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import MentorForm from "./components/MentorForm";
+import TestHomePage from "./pages/TestHomePage"
 import { ChatkitProvider, TokenProvider } from "@pusher/chatkit-client-react";
 import Chat from "./pages/Chat";
 import ChatUserList from "./pages/ChatUserList";
 
 import axios from "axios";
-import { Route, useHistory } from "react-router-dom";
+import { Route, useHistory, Switch } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 // import { ToastContainer, toast } from "react-toastify";
 // import Image from "react-graceful-image";
 
@@ -44,7 +46,7 @@ function App() {
       .get(`https://fivehive.herokuapp.com/api/v1/users/profile/${loggedUser}`)
       .then(result => {
         setmyinfo(result.data);
-        history.push("/main");
+        setIsLoading(false)
         console.log("mounted");
       })
       .catch(console.log("cannot render page"));
@@ -74,6 +76,7 @@ function App() {
         }
       })
         .then(result => {
+          history.push("/main");
           console.log(result.data[1]);
           showUsers(result.data[1]);
           setisloggedin(true);
@@ -112,63 +115,79 @@ function App() {
 
   return (
     <div className="App">
-      <Route exact path="/">
-        <HomePage />
-      </Route>
-      <Route path="/login">
-        <LoginForm
-          isloggedin={isloggedin}
-          setisloggedin={setisloggedin}
-          usernameInput={usernameInput}
-          setusernameInput={usernameInput}
-          passwordInput={passwordInput}
-          setpasswordInput={setpasswordInput}
-          handleUser={handleUser}
-          handlePassword={handlePassword}
-          submitlog={submitlog}
-        />
-      </Route>
-      <Route path="/signup">
-        <SignUpForm />
-      </Route>
-      <Route path="/main">
-        <MainPage loggedUser={loggedUser} myinfo={myinfo} />
-      </Route>
-      <Route path="/nearby">
-        <UserProfile users={users} />
-      </Route>
-      <Route path="/challenges">
-        <Challenges />
-      </Route>
-      <Route path="/myprofile">
-        <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} />
-      </Route>
-      <Route path="/userprofile">
-        <UserProfile users={users} />
-      </Route>
-      <Route path="/mentorform">
-        <MentorForm />
-      </Route>
-      <Route path="/navbar">
-        <NavBar />
-      </Route>
-      <Route path="/chat">
-        <>
-          <div className="App__chatframe">
-            <div className="App__chatwindow">
-              <ChatkitProvider
-                instanceLocator={instanceLocator}
-                tokenProvider={tokenProvider}
-                userId={userId}
-              >
-                <ChatUserList userId={userId} />
-                <Chat otherUserId={otherUserId} />
-              </ChatkitProvider>
-            </div>
-          </div>
-          <NavBar />
-        </>
-      </Route>
+      <Route render={({ location }) => (
+        <TransitionGroup>
+          <CSSTransition
+            key={location.key}
+            timeout={1000}
+            classNames="fade"
+          >
+            <Switch location={location}>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route path="/login">
+                <LoginForm
+                  isloggedin={isloggedin}
+                  setisloggedin={setisloggedin}
+                  usernameInput={usernameInput}
+                  setusernameInput={usernameInput}
+                  passwordInput={passwordInput}
+                  setpasswordInput={setpasswordInput}
+                  handleUser={handleUser}
+                  handlePassword={handlePassword}
+                  submitlog={submitlog}
+                />
+              </Route>
+              <Route path="/signup">
+                <SignUpForm />
+              </Route>
+              <Route path="/main">
+                <MainPage loggedUser={loggedUser} myinfo={myinfo}
+                  isLoading={isLoading} />
+              </Route>
+              <Route path="/nearby">
+                <UserProfile users={users} />
+              </Route>
+              <Route path="/challenges">
+                <Challenges />
+              </Route>
+              <Route path="/myprofile">
+                <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} />
+              </Route>
+              <Route path="/userprofile">
+                <UserProfile users={users} />
+              </Route>
+              <Route path="/mentorform">
+                <MentorForm />
+              </Route>
+              <Route path="/test">
+                <TestHomePage
+                  handleUser={handleUser}
+                  handlePassword={handlePassword}
+                  submitlog={submitlog} />
+              </Route>
+              <Route path="/chat">
+                <>
+                  <div className="App__chatframe">
+                    <div className="App__chatwindow">
+                      <ChatkitProvider
+                        instanceLocator={instanceLocator}
+                        tokenProvider={tokenProvider}
+                        userId={userId}
+                      >
+                        <ChatUserList userId={userId} />
+                        <Chat otherUserId={otherUserId} />
+                      </ChatkitProvider>
+                    </div>
+                  </div>
+                  <NavBar />
+                </>
+              </Route>
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+      )} />
     </div>
   );
 }
