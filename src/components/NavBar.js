@@ -30,7 +30,7 @@ const NavBar = () => {
         </Button>
       </div>
       <div>
-        <Button tag={Link} to="#" className={styles.grid} style={{ color: "#fcfcfc" }}>
+        <Button tag={Link} to="/chat" className={styles.grid} style={{ color: "#fcfcfc" }}>
           <i class="fas fa-comments"></i>
           <br />
           Chat
