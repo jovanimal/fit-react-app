@@ -1,9 +1,14 @@
 import Moment from "react-moment";
 import React, { useState, useEffect } from "react";
 import { withChatkitOneToOne } from "@pusher/chatkit-client-react";
-
+import { Button } from "reactstrap";
+import Image from "react-graceful-image";
+import { NavLink as Link } from "react-router-dom"
+import Navbar from "../components/NavBar";
+import LoadingIndicator from "../components/LoadingIndicator";
 import "./Chat.css";
 import defaultAvatar from "../assets/images/default-profile.png";
+import matt from "../assets/images/matt.png";
 
 function Chat(props) {
   const [pendingMessage, setPendingMessage] = useState("");
@@ -44,36 +49,73 @@ function Chat(props) {
   }));
 
   return (
-    <div className="Chat">
-      <div className="Chat__titlebar">
-        <img
-          src={defaultAvatar}
-          className="Chat__titlebar__avatar"
-          alt="avatar"
-        />
-        <div className="Chat__titlebar__details">
-          <span>
-            {props.chatkit.isLoading ? "Loading..." : "Matthew Cross"}
-          </span>
+    <div className="page">
+      <div className="Chat">
+        <div className="Chat__titlebar">
+          <Button
+            className="Back__button"
+            tag={Link}
+            to="/login"
+          >
+            <i class="fas fa-caret-left"></i>
+          </Button>
+          {props.chatkit.isLoading ? (
+            <img
+              src={defaultAvatar}
+              className="Chat__titlebar__avatar"
+              alt="avatar"
+            />
+          ) : (
+              <Image
+                src={matt}
+                className="Chat__titlebar__avatar"
+                alt="avatar"
+              />
+            )}
+          <div className="Chat__titlebar__details">
+            <span>
+              <h4>
+                {props.chatkit.isLoading ? "..." : "Matthew Cross"}
+              </h4>
+              <p className="Chat__titlebar__details__presence">
+                {props.chatkit.isLoading ? "..." : "online"}
+              </p>
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="Chat__messages" ref={messageList}>
-        {messages.map(m => (
-          <Message key={m.id} {...m} />
-        ))}
-      </div>
-      <div className="Chat__compose">
-        <input
-          className="Chat__compose__input"
-          type="text"
-          placeholder="Type a message..."
-          value={pendingMessage}
-          onChange={handleMessageChange}
-          onKeyDown={handleMessageKeyDown}
-        />
-        <button className="Chat__compose__button" onClick={handleSendMessage}>
-          Send
-        </button>
+        <div className="Chat__messages" ref={messageList}>
+          <div className="Loading__indicator" style={props.chatkit.isLoading ? { display: "block" } : { display: "none" }}>
+            <LoadingIndicator />
+          </div>
+          <div className="lines">
+            <div className="line1"></div>
+            <div className="line2"></div>
+            <div className="line3"></div>
+            <div className="line4"></div>
+          </div>
+          {messages.map(m => (
+            <Message key={m.id} {...m} />
+          ))}
+        </div>
+        <div className="Chat__compose">
+          <input
+            className="Chat__compose__input"
+            type="text"
+            placeholder="Type a message..."
+            value={pendingMessage}
+            onChange={handleMessageChange}
+            onKeyDown={handleMessageKeyDown}
+          />
+          <button
+            className="Chat__compose__button"
+            onClick={handleSendMessage}
+          >
+            <span className="hb hb-sm hex">
+              <i class="far fa-paper-plane"></i>
+            </span>
+          </button>
+        </div>
+        <Navbar />
       </div>
     </div>
   );

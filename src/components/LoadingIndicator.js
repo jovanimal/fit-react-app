@@ -4,7 +4,7 @@ import styles from "./LoadingIndicator.module.css"
 const LoadingIndicator = () => {
   return (
     <>
-      <div className={styles.fullPage}>
+      <div className={styles.everything}>
         <div className={styles.allHexes}>
           <div className={styles.row1}>
             <div className={styles.hex1}>
@@ -34,7 +34,7 @@ const LoadingIndicator = () => {
             </div>
           </div>
         </div>
-        <h6>Logging in...</h6>
+        <h6 style={{ marginRight: "-15px" }}>Loading...</h6>
       </div>
     </>
   )
