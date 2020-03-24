@@ -10,9 +10,13 @@ const MainPage = ({ loggedUser, myinfo, isLoading }) => {
   return (
     <>
       {isLoading ?
-        <div className="page">
-          <LoadingIndicator />
-        </div>
+        (
+          <div className="page">
+            <div className={styles.fullPage}>
+              <LoadingIndicator />
+            </div>
+          </div>
+        )
         :
         (
           <div className="page">
@@ -36,7 +40,7 @@ const MainPage = ({ loggedUser, myinfo, isLoading }) => {
                 </Button>
               </div>
               <div className={styles.mentorAnimate}>
-                <Button tag={Link} to="/mentorform" className={styles.mentorBtn} style={{ backgroundColor: "transparent", border: "none" }}>
+                <Button tag={Link} to="/mentor" className={styles.mentorBtn} style={{ backgroundColor: "transparent", border: "none" }}>
                   <span className="hb hb-md">
                     <h6>MENTOR</h6>
                   </span>

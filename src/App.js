@@ -158,7 +158,7 @@ function App() {
               <Route path="/userprofile">
                 <UserProfile users={users} />
               </Route>
-              <Route path="/mentorform">
+              <Route path="/mentor">
                 <MentorForm />
               </Route>
               <Route path="/test">
@@ -181,7 +181,6 @@ function App() {
                       </ChatkitProvider>
                     </div>
                   </div>
-                  <NavBar />
                 </>
               </Route>
             </Switch>

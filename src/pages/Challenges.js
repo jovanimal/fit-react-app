@@ -19,7 +19,7 @@ const Challenges = () => {
   ]
 
   return (
-    <>
+    <div className="page">
       <div className={styles.fullPage}>
         <div className={styles.hashtagRow}>
           <div className={styles.hashtagTitle}>
@@ -59,7 +59,7 @@ const Challenges = () => {
         </div>
       </div>
       <NavBar />
-    </>
+    </div>
   );
 };
 

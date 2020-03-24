@@ -244,19 +244,21 @@ const SignUpForm = () => {
   ]
 
   return (
-    <div className={styles.fullPage}>
-      <Button tag={Link} to="/login" style={{
-        top: "20px", left: "20px", position: "absolute", borderRadius: "50%", height: "35px", width: "35px", fontSize: "2em", display: "flex",
-        paddingTop: "23px",
-        alignItems: "center", justifyContent: "center", backgroundColor: "#fdbe83", border: "none", color: "slategray"
-      }}>
-        <p>&lt;</p>
-      </Button>
-      <h1>Sign Up</h1>
-      <div className={styles.container}>
-        {pages[currentPage]}
+    <div className="page">
+      <div className={styles.fullPage}>
+        <Button
+          className={styles.backButton}
+          tag={Link}
+          to="/login"
+        >
+          <i class="fas fa-caret-left"></i>
+        </Button>
+        <h1>Sign Up</h1>
+        <div className={styles.container}>
+          {pages[currentPage]}
+        </div>
+        {buttonGroup[currentPage]}
       </div>
-      {buttonGroup[currentPage]}
     </div>
   );
 };
