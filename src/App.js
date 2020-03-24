@@ -36,7 +36,7 @@ function App() {
   const [usernameInput, setusernameInput] = useState("");
   const [passwordInput, setpasswordInput] = useState("");
   const [loggedUser, setloggedUser] = useState("");
-  const [myinfo, setmyinfo] = useState(null);
+  const [myinfo, setmyinfo] = useState({});
   const urlParams = new URLSearchParams(window.location.search);
   const userId = "ridza";
   const otherUserId = "matt";
@@ -80,7 +80,10 @@ function App() {
           console.log(result.data[1]);
           showUsers(result.data[1]);
           setisloggedin(true);
-          setloggedUser(result.data[1]);
+          setloggedUser(result.data["user_id"]);
+          localStorage.setItem("jwt", result.data["jwt"]);
+          console.log(localStorage);
+          console.log(localStorage["jwt"]);
         })
         .catch(error => {
           console.log("cannot leh");
@@ -99,19 +102,6 @@ function App() {
         console.log(error);
       });
   };
-
-  // test dalete me pls
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://fivehive.herokuapp.com/api/v1/users/show/1`)
-  //     .then(result => {
-  //       console.log(result.data);
-  //       setUsers(result.data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // })
 
   return (
     <div className="App">
@@ -144,19 +134,19 @@ function App() {
               </Route>
               <Route path="/main">
                 <MainPage loggedUser={loggedUser} myinfo={myinfo}
-                  isLoading={isLoading} />
+                  setmyinfo={setmyinfo} isLoading={isLoading} />
               </Route>
               <Route path="/nearby">
-                <UserProfile users={users} />
+                <UserProfile users={users}/>
               </Route>
               <Route path="/challenges">
                 <Challenges />
               </Route>
               <Route path="/myprofile">
-                <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} />
+                <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} setmyinfo={setmyinfo}/>
               </Route>
               <Route path="/userprofile">
-                <UserProfile users={users} />
+                <UserProfile users={users} setUsers={setUsers}/>
               </Route>
               <Route path="/mentorform">
                 <MentorForm />
