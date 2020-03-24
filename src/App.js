@@ -10,7 +10,7 @@ import Challenges from "./pages/Challenges";
 import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
-import MentorForm from "./components/MentorForm"
+import MentorForm from "./components/MentorForm";
 
 import axios from "axios";
 import { Route, useHistory } from "react-router-dom";
@@ -24,7 +24,7 @@ function App() {
   const [usernameInput, setusernameInput] = useState("");
   const [passwordInput, setpasswordInput] = useState("");
   const [loggedUser, setloggedUser] = useState("");
-  const [myinfo, setmyinfo] = useState(null);
+  const [myinfo, setmyinfo] = useState({});
 
   useEffect(() => {
     axios
@@ -61,10 +61,13 @@ function App() {
         }
       })
         .then(result => {
-          console.log(result.data[1]);
-          showUsers(result.data[1]);
+          // console.log(result.data[1]);
+          // showUsers(result.data["user_id"]);
           setisloggedin(true);
-          setloggedUser(result.data[1]);
+          setloggedUser(result.data["user_id"]);
+          localStorage.setItem("jwt", result.data["jwt"]);
+          console.log(localStorage);
+          console.log(localStorage["jwt"]);
         })
         .catch(error => {
           console.log("cannot leh");
@@ -83,19 +86,6 @@ function App() {
         console.log(error);
       });
   };
-
-  // test dalete me pls
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://fivehive.herokuapp.com/api/v1/users/show/1`)
-  //     .then(result => {
-  //       console.log(result.data);
-  //       setUsers(result.data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // })
 
   return (
     <div className="App">
@@ -119,7 +109,12 @@ function App() {
         <SignUpForm />
       </Route>
       <Route path="/main">
-        <MainPage loggedUser={loggedUser} myinfo={myinfo} />
+        <MainPage
+          loggedUser={loggedUser}
+          myinfo={myinfo}
+          setmyinfo={setmyinfo}
+          myinfo={myinfo}
+        />
       </Route>
       <Route path="/nearby">
         <UserProfile users={users} />
@@ -128,10 +123,14 @@ function App() {
         <Challenges />
       </Route>
       <Route path="/myprofile">
-        <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} />
+        <MyProfilePage
+          loggedUser={loggedUser}
+          myinfo={myinfo}
+          setmyinfo={setmyinfo}
+        />
       </Route>
       <Route path="/userprofile">
-        <UserProfile users={users} />
+        <UserProfile users={users} setUsers={setUsers} />
       </Route>
       <Route path="/mentorform">
         <MentorForm />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../components/NavBar";
 import {
   Col,
@@ -13,6 +13,7 @@ import {
 import Image from "react-graceful-image";
 import defaultImage from "../assets/images/default-profile.png";
 import styles from "./UserProfile.module.css";
+import axios from "axios";
 /*
 // below is the variable for "users" that we fetched from API
 age: 
@@ -25,19 +26,51 @@ weight:
 years_of_training: 
 */
 
-const UserProfile = ({ users }) => {
+const UserProfile = ({ users, setUsers }) => {
+  const token = localStorage.getItem("jwt");
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://localhost:5000/api/v1/users/info/show",
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(result => {
+        console.log(result.data);
+        setUsers(result.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+  console.log(users);
   return (
     <>
-      <Container fluid={true} style={{ marginBottom: "70px", backgroundColor: "rgba(255,255,255,0.6)" }}>
+      <Container
+        fluid={true}
+        style={{
+          marginBottom: "70px",
+          backgroundColor: "rgba(255,255,255,0.6)"
+        }}
+      >
         {/* SAMPLE */}
         <Row style={{ marginTop: "100px" }}>
           <div className={styles.picIcon}>
             <Image src={defaultImage} className={styles.profilePic} />
-            <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-venus" style={{ color: "pink" }}></i></span></a>
+            <a className={styles.icon}>
+              <span className="hb hb-sm">
+                <i class="fas fa-venus" style={{ color: "pink" }}></i>
+              </span>
+            </a>
           </div>
           <div className={styles.picIcon}>
             <Image src={defaultImage} className={styles.profilePic} />
-            <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-mars" style={{ color: "lightblue" }}></i></span></a>
+            <a className={styles.icon}>
+              <span className="hb hb-sm">
+                <i class="fas fa-mars" style={{ color: "lightblue" }}></i>
+              </span>
+            </a>
           </div>
         </Row>
         <Row>
@@ -51,7 +84,14 @@ const UserProfile = ({ users }) => {
                   <div className={styles.line4}></div>
                   <div className={styles.picIcon}>
                     <Image src={defaultImage} className={styles.profilePic} />
-                    <a className={styles.icon}><span className="hb hb-sm"><i class="fas fa-mars" style={{ color: "lightblue" }}></i></span></a>
+                    <a className={styles.icon}>
+                      <span className="hb hb-sm">
+                        <i
+                          class="fas fa-mars"
+                          style={{ color: "lightblue" }}
+                        ></i>
+                      </span>
+                    </a>
                   </div>
                   <h4>{user.username}</h4>
                   <h6>{user.age}</h6>
@@ -70,8 +110,7 @@ const UserProfile = ({ users }) => {
                 </div>
               </Col>
             );
-          })
-          }
+          })}
         </Row>
       </Container>
       <NavBar />
