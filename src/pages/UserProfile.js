@@ -1,11 +1,6 @@
 import React, { useEffect } from "react";
 import NavBar from "../components/NavBar";
-import {
-  Col,
-  Button,
-  Container,
-  Row,
-} from "reactstrap";
+import { Col, Button, Container, Row } from "reactstrap";
 import Image from "react-graceful-image";
 import defaultImage from "../assets/images/default-profile.png";
 import styles from "./UserProfile.module.css";
@@ -28,7 +23,7 @@ const UserProfile = ({ users, setUsers }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:5000/api/v1/users/info/show",
+      url: "http://fivehive.herokuapp.com/api/v1/users/info/show",
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(result => {
@@ -43,11 +38,11 @@ const UserProfile = ({ users, setUsers }) => {
   console.log(users);
   return (
     <div className="page">
-      <Container 
-        fluid={true} 
-        style={{ 
-          marginBottom: "70px", 
-          backgroundColor: "rgba(255,255,255,0.6)" 
+      <Container
+        fluid={true}
+        style={{
+          marginBottom: "70px",
+          backgroundColor: "rgba(255,255,255,0.6)"
         }}
       >
         <Row>
@@ -63,7 +58,10 @@ const UserProfile = ({ users, setUsers }) => {
                     <Image src={defaultImage} className={styles.profilePic} />
                     <a className={styles.icon}>
                       <span className="hb hb-sm">
-                        <i class="fas fa-mars" style={{ color: "lightblue" }}></i>
+                        <i
+                          class="fas fa-mars"
+                          style={{ color: "lightblue" }}
+                        ></i>
                       </span>
                     </a>
                   </div>
