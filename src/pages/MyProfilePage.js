@@ -14,14 +14,27 @@ import Image from "react-graceful-image";
 import profilePic from "../assets/images/calcifer.png";
 import axios from "axios";
 
-const MyProfilePage = ({ loggedUser, myinfo }) => {
+const MyProfilePage = ({ loggedUser, myinfo, setmyinfo }) => {
   const [modal, setModal] = useState(false);
   const [fyle, setfyle] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null)
+  const [previewImage, setPreviewImage] = useState(null);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://fivehive.herokuapp.com/api/v1/users/info/me",
+      headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` }
+    })
+      .then(result => {
+        setmyinfo(result.data);
+        console.log(result.data);
+      })
+      .catch(error => console.log(error.response.data));
+  }, []);
 
   const toggle = e => {
     e.preventDefault();
-    setModal(!modal)
+    setModal(!modal);
   };
 
   const handlefile = e => {
@@ -40,7 +53,7 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
     axios({
       method: "POST",
       // change me
-      url: `http://localhost:5000/api/v1/users/upload/${loggedUser}`,
+      url: `https://fivehive.herokuapp.com/api/v1/users/upload/${loggedUser}`,
       data: formData
     })
       .then(result => {
@@ -50,7 +63,6 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
         console.log(error);
       });
   };
-
 
   return (
     <div className="page">
@@ -79,9 +91,37 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
               {myinfo.years_of_training} years of training
             </Row>
             <Row className={styles.exerciseTags}>
-              <span style={{ fontSize: "0.9em", border: "2px solid #f8a456", borderRadius: "10px", color: "#f8a456" }}>jogging</span>
-              <span style={{ fontSize: "0.9em", border: "2px solid #fd9b8a", borderRadius: "10px", color: "#fd9b8a", margin: "0 5px" }}>yoga</span>
-              <span style={{ fontSize: "0.9em", border: "2px solid #5ac5c5", borderRadius: "10px", color: "#5ac5c5" }}>weightlifting</span>
+              <span
+                style={{
+                  fontSize: "0.9em",
+                  border: "2px solid #f8a456",
+                  borderRadius: "10px",
+                  color: "#f8a456"
+                }}
+              >
+                jogging
+              </span>
+              <span
+                style={{
+                  fontSize: "0.9em",
+                  border: "2px solid #fd9b8a",
+                  borderRadius: "10px",
+                  color: "#fd9b8a",
+                  margin: "0 5px"
+                }}
+              >
+                yoga
+              </span>
+              <span
+                style={{
+                  fontSize: "0.9em",
+                  border: "2px solid #5ac5c5",
+                  borderRadius: "10px",
+                  color: "#5ac5c5"
+                }}
+              >
+                weightlifting
+              </span>
             </Row>
           </Col>
         </Row>
@@ -89,7 +129,9 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
           <Button className={styles.editBtn}>edit your profile</Button>
         </Row>
         <Row>
-          <Button className={styles.addBtn} onClick={toggle}>add post</Button>
+          <Button className={styles.addBtn} onClick={toggle}>
+            add post
+          </Button>
         </Row>
         <Row className={styles.container}>
           <div className={styles.post}></div>
@@ -98,13 +140,23 @@ const MyProfilePage = ({ loggedUser, myinfo }) => {
           <div className={styles.end}>. . .</div>
         </Row>
       </Container>
-      <Container fluid={true} className={styles.fullPageModal} style={modal ? { display: "block" } : { display: "none" }}>
+      <Container
+        fluid={true}
+        className={styles.fullPageModal}
+        style={modal ? { display: "block" } : { display: "none" }}
+      >
         <div className={styles.modal}>
           <h4>Post something</h4>
           <hr />
           <Form>
             <div className={styles.previewBox}>
-              {previewImage ? (<Image className={styles.imagePreview} src={previewImage} />) : (<h5 style={{ color: "rgba(0, 0, 0, 0.5)" }}>Choose image to preview</h5>)}
+              {previewImage ? (
+                <Image className={styles.imagePreview} src={previewImage} />
+              ) : (
+                <h5 style={{ color: "rgba(0, 0, 0, 0.5)" }}>
+                  Choose image to preview
+                </h5>
+              )}
             </div>
             <FormGroup className="w-50 mx-auto d-block">
               <CustomInput
