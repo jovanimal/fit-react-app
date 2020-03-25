@@ -155,7 +155,7 @@
   content: "";
   position: absolute;
   border: 0 solid transparent;
-  border-top: 9px solid #fac899;
+  border-top: 9px solid #f3f1ef;
   border-radius: 0 20px 0;
   width: 15px;
   height: 30px;
@@ -165,15 +165,17 @@
 /* SELF MESSAGE ARROW */
 .Chat__messages__message__arrow.alt:after {
   transform: rotate(45deg) scaleY(-1);
-  border-top: 9px solid #fd906e;
+  /* border-top: 9px solid #fd906e; */
+  border-top: 9px solid #fac899;
 }
 
 .Chat__messages__message--other {
-  background-image: linear-gradient(#f8d5b7, #fdbe83);
+  background-image: linear-gradient(#ffffff, #e4e3e3);
 }
 
 .Chat__messages__message--self {
-  background-image: linear-gradient(#fcb59f, #fd8864);
+  /* background-image: linear-gradient(#fcb59f, #fd8864); */
+  background-image: linear-gradient(#f8d5b7, #fdbe83);
   text-align: right;
 }
 
@@ -188,7 +190,7 @@
   margin: 6rem -2rem;
   width: 100vw;
   text-align: center;
-  z-index: 10;
+  z-index: 0;
 }
 
 .Chat__compose {
@@ -233,7 +235,8 @@
   background-color: rgb(253, 222, 181);
   border-color: white;
   color: rgb(253, 150, 113);
-  font-size: 3.8em;
+  font-size: 4.7em;
+  border-radius: 0;
 }
 
 .hex i {

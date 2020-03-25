@@ -137,16 +137,16 @@ function App() {
                   setmyinfo={setmyinfo} isLoading={isLoading} />
               </Route>
               <Route path="/nearby">
-                <UserProfile users={users}/>
+                <UserProfile users={users} />
               </Route>
               <Route path="/challenges">
                 <Challenges />
               </Route>
               <Route path="/myprofile">
-                <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} setmyinfo={setmyinfo}/>
+                <MyProfilePage loggedUser={loggedUser} myinfo={myinfo} setmyinfo={setmyinfo} />
               </Route>
               <Route path="/userprofile">
-                <UserProfile users={users} setUsers={setUsers}/>
+                <UserProfile users={users} setUsers={setUsers} />
               </Route>
               <Route path="/mentor">
                 <MentorForm />
@@ -158,7 +158,7 @@ function App() {
                   submitlog={submitlog} />
               </Route>
               <Route path="/chat">
-                <>
+                <div className="page">
                   <div className="App__chatframe">
                     <div className="App__chatwindow">
                       <ChatkitProvider
@@ -166,12 +166,28 @@ function App() {
                         tokenProvider={tokenProvider}
                         userId={userId}
                       >
-                        <ChatUserList userId={userId} />
+                        {/* <ChatUserList userId={userId} /> */}
                         <Chat otherUserId={otherUserId} />
                       </ChatkitProvider>
                     </div>
                   </div>
-                </>
+                </div>
+              </Route>
+              <Route path="/chatlist">
+                <div className="page">
+                  {/* <div className="App__chatframe"> */}
+                  {/* <div className="App__chatwindow"> */}
+                  <ChatkitProvider
+                    instanceLocator={instanceLocator}
+                    tokenProvider={tokenProvider}
+                    userId={userId}
+                  >
+                    <ChatUserList userId={userId} />
+                    {/* <Chat otherUserId={otherUserId} /> */}
+                  </ChatkitProvider>
+                </div>
+                {/* </div> */}
+                {/* </div> */}
               </Route>
             </Switch>
           </CSSTransition>

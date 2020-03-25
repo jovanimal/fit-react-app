@@ -6,6 +6,7 @@ import Image from "react-graceful-image";
 import { NavLink as Link } from "react-router-dom"
 import Navbar from "../components/NavBar";
 import LoadingIndicator from "../components/LoadingIndicator";
+import ChatUserList from "./ChatUserList";
 import "./Chat.css";
 import defaultAvatar from "../assets/images/default-profile.png";
 import matt from "../assets/images/matt.png";
@@ -55,7 +56,7 @@ function Chat(props) {
           <Button
             className="Back__button"
             tag={Link}
-            to="/login"
+            to="/chatlist"
           >
             <i class="fas fa-caret-left"></i>
           </Button>
