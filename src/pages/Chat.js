@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { withChatkitOneToOne } from "@pusher/chatkit-client-react";
 import { Button } from "reactstrap";
 import Image from "react-graceful-image";
-import { NavLink as Link } from "react-router-dom"
+import { NavLink as Link } from "react-router-dom";
 import Navbar from "../components/NavBar";
 import LoadingIndicator from "../components/LoadingIndicator";
 import "./Chat.css";
@@ -52,11 +52,7 @@ function Chat(props) {
     <div className="page">
       <div className="Chat">
         <div className="Chat__titlebar">
-          <Button
-            className="Back__button"
-            tag={Link}
-            to="/login"
-          >
+          <Button className="Back__button" tag={Link} to="/login">
             <i class="fas fa-caret-left"></i>
           </Button>
           {props.chatkit.isLoading ? (
@@ -66,17 +62,11 @@ function Chat(props) {
               alt="avatar"
             />
           ) : (
-              <Image
-                src={matt}
-                className="Chat__titlebar__avatar"
-                alt="avatar"
-              />
-            )}
+            <Image src={matt} className="Chat__titlebar__avatar" alt="avatar" />
+          )}
           <div className="Chat__titlebar__details">
             <span>
-              <h4>
-                {props.chatkit.isLoading ? "..." : "Matthew Cross"}
-              </h4>
+              <h4>{props.chatkit.isLoading ? "..." : "Matthew Cross"}</h4>
               <p className="Chat__titlebar__details__presence">
                 {props.chatkit.isLoading ? "..." : "online"}
               </p>
@@ -84,7 +74,14 @@ function Chat(props) {
           </div>
         </div>
         <div className="Chat__messages" ref={messageList}>
-          <div className="Loading__indicator" style={props.chatkit.isLoading ? { display: "block" } : { display: "none" }}>
+          <div
+            className="Loading__indicator"
+            style={
+              props.chatkit.isLoading
+                ? { display: "block" }
+                : { display: "none" }
+            }
+          >
             <LoadingIndicator />
           </div>
           <div className="lines">
@@ -106,10 +103,7 @@ function Chat(props) {
             onChange={handleMessageChange}
             onKeyDown={handleMessageKeyDown}
           />
-          <button
-            className="Chat__compose__button"
-            onClick={handleSendMessage}
-          >
+          <button className="Chat__compose__button" onClick={handleSendMessage}>
             <span className="hb hb-sm hex">
               <i class="far fa-paper-plane"></i>
             </span>
