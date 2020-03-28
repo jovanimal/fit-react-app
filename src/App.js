@@ -11,10 +11,11 @@ import UploadPage from "./pages/UploadPage";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import MentorForm from "./components/MentorForm";
-import TestHomePage from "./pages/TestHomePage"
+import TestHomePage from "./pages/TestHomePage";
 import { ChatkitProvider, TokenProvider } from "@pusher/chatkit-client-react";
 import Chat from "./pages/Chat";
 import ChatUserList from "./pages/ChatUserList";
+import Match from "./pages/Match";
 
 import axios from "axios";
 import { Route, useHistory, Switch } from "react-router-dom";
@@ -47,7 +48,7 @@ function App() {
       .get(`https://fivehive.herokuapp.com/api/v1/users/profile/${loggedUser}`)
       .then(result => {
         setmyinfo(result.data);
-        setIsLoading(false)
+        setIsLoading(false);
         console.log("mounted");
       })
       .catch(console.log("cannot render page"));
@@ -147,6 +148,9 @@ function App() {
                     <Switch location={location}>
                       <Route path="/nearby">
                         <UserProfile users={users} setUsers={setUsers} />
+                      </Route>
+                      <Route path="/match">
+                        <Match />
                       </Route>
                       <Route path="/challenges">
                         <Challenges />

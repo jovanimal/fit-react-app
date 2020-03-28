@@ -7,21 +7,36 @@ const NavBar = () => {
   return (
     <div className={styles.navbar}>
       <div>
-        <Button tag={Link} to="/nearby" className={styles.grid} style={{ color: "#cf6f15" }}>
-          <i className="fas fa-street-view"></i>
+        <Button
+          tag={Link}
+          to="/nearby"
+          className={styles.grid}
+          style={{ color: "#cf6f15" }}
+        >
+          <i class="fas fa-street-view"></i>
           <br />
           Nearby
         </Button>
       </div>
       <div>
-        <Button tag={Link} to="#" className={styles.grid} style={{ color: "#e47915" }}>
-          <i className="fas fa-user-friends"></i>
+        <Button
+          tag={Link}
+          to="/match"
+          className={styles.grid}
+          style={{ color: "#e47915" }}
+        >
+          <i class="fas fa-user-friends"></i>
           <br />
           Match
         </Button>
       </div>
       <div>
-        <Button tag={Link} to="/challenges" className={styles.fit} style={{ color: "#fcefe3" }}>
+        <Button
+          tag={Link}
+          to="/challenges"
+          className={styles.fit}
+          style={{ color: "#fcefe3" }}
+        >
           <span className={`hb hb-sm ${styles.hex}`}>
             <i className={`fas fa-dumbbell ${styles.fitIcon}`}></i>
             <br />
@@ -30,8 +45,13 @@ const NavBar = () => {
         </Button>
       </div>
       <div>
-        <Button tag={Link} to="/chatlist" className={styles.grid} style={{ color: "#fcfcfc" }}>
-          <i className="fas fa-comments"></i>
+        <Button
+          tag={Link}
+          to="/chatlist"
+          className={styles.grid}
+          style={{ color: "#fcfcfc" }}
+        >
+          <i class="fas fa-comments"></i>
           <br />
           Chat
         </Button>
