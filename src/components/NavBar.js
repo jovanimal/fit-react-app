@@ -21,7 +21,7 @@ const NavBar = () => {
       <div>
         <Button
           tag={Link}
-          to="match"
+          to="/match"
           className={styles.grid}
           style={{ color: "#e47915" }}
         >
@@ -47,7 +47,7 @@ const NavBar = () => {
       <div>
         <Button
           tag={Link}
-          to="/chat"
+          to="/chatlist"
           className={styles.grid}
           style={{ color: "#fcfcfc" }}
         >
@@ -58,7 +58,7 @@ const NavBar = () => {
       </div>
       <div>
         <Button tag={Link} to="/myprofile" className={styles.grid}>
-          <i class="fas fa-user"></i>
+          <i className="fas fa-user"></i>
           <br />
           Profile
         </Button>

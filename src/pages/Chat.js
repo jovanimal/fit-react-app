@@ -6,6 +6,7 @@ import Image from "react-graceful-image";
 import { NavLink as Link } from "react-router-dom";
 import Navbar from "../components/NavBar";
 import LoadingIndicator from "../components/LoadingIndicator";
+import ChatUserList from "./ChatUserList";
 import "./Chat.css";
 import defaultAvatar from "../assets/images/default-profile.png";
 import matt from "../assets/images/matt.png";
@@ -52,7 +53,11 @@ function Chat(props) {
     <div className="page">
       <div className="Chat">
         <div className="Chat__titlebar">
-          <Button className="Back__button" tag={Link} to="/login">
+          <Button
+            className="Back__button"
+            tag={Link}
+            to="/chatlist"
+          >
             <i class="fas fa-caret-left"></i>
           </Button>
           {props.chatkit.isLoading ? (
@@ -72,6 +77,8 @@ function Chat(props) {
               </p>
             </span>
           </div>
+        </div>
+        <div className="bar">
         </div>
         <div className="Chat__messages" ref={messageList}>
           <div

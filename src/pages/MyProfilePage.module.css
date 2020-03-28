@@ -1,10 +1,11 @@
 .fullPage {
   height: 100vh;
-  width: 100vw;  background-color: rgba(255,255,255,0.5);
-  margin-top: 30px;
+  width: 100vw;
+  background-color: rgba(255,255,255,0.6);
   margin-bottom: 70px;
   font-family: 'Roboto Condensed', sans-serif;
   color: darkslategray;
+  overflow-y: hidden;
 }
 
 .fullPageModal {
@@ -13,7 +14,7 @@
   top: 0;
   left: 0;
   position: fixed;
-  background-color: rgba(255,255,255,0.95);
+  background-color: rgba(255,255,255,0.9);
   margin-bottom: 70px;
   font-family: 'Roboto Condensed', sans-serif;
   color: darkslategray;
@@ -23,6 +24,7 @@
 
 .username {
   margin: 0 auto;
+  margin-top: 30px;
   width: 85%; 
   text-align: center;
   border-bottom: 2px solid #fca453;
@@ -101,11 +103,9 @@ h4{
   margin: 0 auto;
   margin-top: 10px;
   justify-content: center;
-  /* border: 1px solid black; */
 }
 
 .modal {
-  /* background-color: rgba(0, 0, 0, 0.5); */
   border: 2px solid #fdbe83;
   margin: 20px auto;
   border-radius: 10px;
@@ -116,7 +116,6 @@ h4{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  -webkit-animation: slide-in-top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: slide-in-top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -224,18 +223,6 @@ h4{
 }
 
 /* MODAL SLIDE IN ANIMATION */
-@-webkit-keyframes slide-in-top {
-  0% {
-    -webkit-transform: translateY(-1000px);
-            transform: translateY(-1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
 @keyframes slide-in-top {
   0% {
     -webkit-transform: translateY(-1000px);
@@ -250,20 +237,7 @@ h4{
 }
 
 /* MODAL SLIDE OUT ANIMATION */
-/* -webkit-animation: slide-out-top 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-animation: slide-out-top 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; */
-@-webkit-keyframes slide-out-top {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateY(-1000px);
-            transform: translateY(-1000px);
-    opacity: 0;
-  }
-}
+/* animation: slide-out-top 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; */
 @keyframes slide-out-top {
   0% {
     -webkit-transform: translateY(0);

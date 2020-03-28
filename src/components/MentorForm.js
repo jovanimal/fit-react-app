@@ -306,7 +306,7 @@ const MentorForm = () => {
           tag={Link}
           to="/login"
         >
-          <i class="fas fa-caret-left"></i>
+          <i className="fas fa-caret-left"></i>
         </Button>
         <div className={styles.container}>
           {pages[currentPage]}
