@@ -8,7 +8,7 @@ import matt from "../assets/images/matt.png"
 
 function ChatUserList({ myinfo }) {
   return (
-    <>
+    <div className="page">
       <div className="UserList">
         <div className="UserList__titlebar">
           <div className="UserList__self">
@@ -137,9 +137,10 @@ function ChatUserList({ myinfo }) {
             </li>
           </ul>
         </div>
+        <div className="end">. . .</div>
       </div>
-      <Navbar />
-    </>
+      {/* <Navbar /> */}
+    </div>
   );
 }
 

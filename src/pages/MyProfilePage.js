@@ -153,10 +153,10 @@ const MyProfilePage = ({ loggedUser, myinfo, setmyinfo }) => {
               {previewImage ? (
                 <Image className={styles.imagePreview} src={previewImage} />
               ) : (
-                <h5 style={{ color: "rgba(0, 0, 0, 0.5)" }}>
-                  Choose image to preview
+                  <h5 style={{ color: "rgba(0, 0, 0, 0.5)" }}>
+                    Choose image to preview
                 </h5>
-              )}
+                )}
             </div>
             <FormGroup className="w-50 mx-auto d-block">
               <CustomInput
@@ -182,7 +182,7 @@ const MyProfilePage = ({ loggedUser, myinfo, setmyinfo }) => {
           </Form>
         </div>
       </Container>
-      <NavBar />
+      {/* <NavBar /> */}
     </div>
   );
 };

@@ -3,6 +3,7 @@ body {
   background-size: 100vw auto;
   background-repeat: repeat;
   font-family: "Roboto Condensed", sans-serif;
+  border: none;
 }
 
 .App {
@@ -123,10 +124,38 @@ body {
   animation: slideOutLeft 1s forwards;
 }
 
+.chat-appear .chat-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.chat-appear-active .chat-enter.chat-enter-active {
+  animation: slideInRight 1s forwards !important;
+}
+
+.chat-exit {
+  opacity: 1;
+}
+
+.chat-exit.chat-exit-active {
+  animation: slideOutRight 1s forwards !important;
+}
+
 @keyframes slideInLeft {
   from {
     transform: translate3d(-100%, 0, 0);
-    visibility: visible;
+    /* visibility: visible; */
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    /* visibility: visible; */
   }
 
   to {
@@ -142,5 +171,16 @@ body {
   to {
     /* visibility: hidden; */
     transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    /* visibility: hidden; */
+    transform: translate3d(100%, 0, 0);
   }
 }

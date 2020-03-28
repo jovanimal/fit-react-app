@@ -84,6 +84,8 @@ function Chat(props) {
             </span>
           </div>
         </div>
+        <div className="bar">
+        </div>
         <div className="Chat__messages" ref={messageList}>
           <div className="Loading__indicator" style={props.chatkit.isLoading ? { display: "block" } : { display: "none" }}>
             <LoadingIndicator />

@@ -110,7 +110,7 @@ const UserProfile = ({ users, setUsers }) => {
           })}
         </Row>
       </Container>
-      <NavBar />
+      {/* <NavBar /> */}
     </div>
   );
 };
