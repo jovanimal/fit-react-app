@@ -133,7 +133,7 @@ const SignUpForm = () => {
         </FormGroup>
       </Form>
     </div>,
-    <div className={styles.step2}>
+    <div className={styles.step3}>
       <Form>
         <h5>What are your preferred exercises?</h5>
         <div className={styles.row1}>
@@ -166,46 +166,18 @@ const SignUpForm = () => {
           </div>
         </div>
       </Form>
-    </div>,
-    <div className={styles.step2}>
-      <Form>
-        <h5>What are your preferred exercises?</h5>
-        <div className={styles.row1}>
-          <div className={styles.checkboxes}>
-            <input type="checkbox" id="sixth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="sixth"></label>
-            <input type="checkbox" id="seventh" />
-            <label className={`hb hb-sm ${styles.hex}`} for="seventh">
-            </label>
-            <input type="checkbox" id="eighth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="eighth"></label>
-          </div>
-        </div>
-        <div className={styles.row2}>
-          <div className={styles.checkboxes}>
-            <input type="checkbox" id="ninth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="ninth"></label>
-            <input type="checkbox" id="tenth" />
-            <label className={`hb hb-sm ${styles.hex}`} for="tenth"></label>
-          </div>
-        </div>
-      </Form>
+      <FormGroup>
+        <label>
+          Others:
+              <input type="text" placeholder="please specify" />
+        </label>
+      </FormGroup>
     </div>
   ];
 
   const buttonGroup = [
     (
       <div className={styles.nextPrevBtn}>
-        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage + 1)}>
-          next >>
-        </button>
-      </div>
-    ),
-    (
-      <div className={styles.nextPrevBtn}>
-        <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage - 1)}>
-          &lt;&lt; previous
-        </button>
         <button className={styles.nextBtn} onClick={() => setCurrentPage(currentPage + 1)}>
           next >>
         </button>

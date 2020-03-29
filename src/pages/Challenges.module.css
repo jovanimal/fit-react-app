@@ -12,12 +12,13 @@
 .hashtagTitle {
   display: flex;
   flex-direction: row;
-  margin: 20px 0 -15px 20px;
+  margin: 20px 0 -20px 20px;
   position: relative;
   animation: mymove 2s;
 }
 
 .hashtagTitle p {
+  margin-top: 5px;
   font-size: 1.5em;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: darkslategray;
@@ -40,7 +41,7 @@
   border-top: 3px double #fdbe83;
   border-bottom: 5px double #fdbe83;
   /* background-color: #fdbe83; */
-  padding: 10px 0px;
+  padding: 15px 0px 0px 0px;
 }
 
 .card {
