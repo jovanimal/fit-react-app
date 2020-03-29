@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import NavBar from "../components/NavBar";
 import "./Match.css";
 import MatchPerson from "./MatchPerson";
 import MatchLonely from "./MatchLonely";
 import data from "../data.json";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/5hivelogo.png";
 
 const Match = () => {
   const [people, setPeople] = useState(data);
@@ -56,28 +55,29 @@ const Match = () => {
   };
 
   return (
-    <div className="frame">
-      <header>
-        <div className="fl">
-          <div>
-            <img src={logo} alt="Logo" />
+    <div className="page">
+      <div className="frame">
+        <header>
+          <div className="fl">
+            <div>
+              <img src={logo} alt="Logo" className="logo" />
+            </div>
           </div>
-        </div>
-      </header>
-      {people[1] ? (
-        <MatchPerson
-          key={people[1].id}
-          person={people[1]}
-          modifySuperficialChoices={modifySuperficialChoices}
-          likedUsers={likedUsers}
-        />
-      ) : (
-        <MatchLonely
-          likedUsers={likedUsers}
-          superLikedUsers={superLikedUsers}
-        />
-      )}
-      <NavBar />
+        </header>
+        {people[1] ? (
+          <MatchPerson
+            key={people[1].id}
+            person={people[1]}
+            modifySuperficialChoices={modifySuperficialChoices}
+            likedUsers={likedUsers}
+          />
+        ) : (
+            <MatchLonely
+              likedUsers={likedUsers}
+              superLikedUsers={superLikedUsers}
+            />
+          )}
+      </div>
     </div>
   );
 };

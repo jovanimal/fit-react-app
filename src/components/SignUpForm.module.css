@@ -51,6 +51,12 @@
   animation: mymove 2s;
 }
 
+.step3 {
+  position: relative;
+  animation: mymove 2s;
+  margin-top: 10px;
+}
+
 .title{
   margin-bottom: -8px;
   font-size: 0.8em;
@@ -128,15 +134,16 @@
 
 .row1 {
   margin: 0 auto;
-  margin-top: 40px;
-  width: 90%;
+  margin-top: 35px;
+  width: 80%;
   /* border: 1px solid black; */
 }
 
 .row2 {
   margin: 0 auto;
   margin-top: 20px;
-  width: 60%;
+  margin-bottom: 50px;
+  width: 55%;
   /* border: 1px solid black; */
 }
 

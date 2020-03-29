@@ -12,6 +12,8 @@ const MatchPerson = ({ person, modifySuperficialChoices }) => {
           <img src={`/images/${image}`} alt={name} />
         </div>
 
+        <div className="box">
+        </div>
         <div className="person-description">
           <p className="person-name-age">
             {name}, <span>{age}</span>
